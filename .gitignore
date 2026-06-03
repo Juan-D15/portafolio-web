@@ -20,18 +20,16 @@ build/
 dist/
 *.egg-info/
 
-# Base de datos local (por si creas sqlite para pruebas)
+# Base de datos local 
 db.sqlite3
 
-# Variables de entorno (¡no subir credenciales!)
+# Variables de entorno
 .env
 .env.*
 **/.env
 **/.env.*
 
-# Archivos estáticos compilados (NO tus fuentes en notas/static/)
-# Ajusta estos nombres al STATIC_ROOT que definas para collectstatic
-/staticfiles/
+# Archivos estáticos compilados
 /static_root/
 /media/
 
@@ -45,7 +43,7 @@ htmlcov/
 .coverage*
 .cache/
 
-# IDE / Editor (opcional: si quieres compartir .vscode/settings.json, quita esta sección)
+# IDE / Editor
 .vscode/
 .idea/
 *.code-workspace
@@ -53,11 +51,18 @@ htmlcov/
 # Tooling de Node
 node_modules/
 
+# --- React / Create React App ---
+# Build de producción de React
+**/build/
+# Coverage de tests (Jest)
+**/coverage/
+# Caché de ESLint
+**/.eslintcache
+
 # --- Tailwind ---
 /static/css/output.css
-/webAMG/static/dist/
 
-AGENTS.md
+#AGENTS.md
 *.sql
 .agents/
 skills-lock.json
