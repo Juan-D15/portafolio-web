@@ -18,7 +18,8 @@ const skills = [
       { name: ".NET", icon: "dotnet" },
       { name: "HTML5", icon: "html5" },
       { name: "CSS", icon: "css3" },
-      { name: "WordPress", icon: "wordpress" }
+      { name: "WordPress", icon: "wordpress" },
+      { name: "Vite", icon: "vite" }
     ]
   },
   {
