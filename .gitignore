@@ -62,7 +62,7 @@ node_modules/
 # --- Tailwind ---
 /static/css/output.css
 
-#AGENTS.md
+AGENTS.md
 *.sql
 .agents/
 skills-lock.json
