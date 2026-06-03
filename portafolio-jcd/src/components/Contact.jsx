@@ -19,8 +19,8 @@ const Contact = () => {
     {
       name: 'LinkedIn',
       icon: <LinkedInIcon />,
-      url: 'https://linkedin.com/in/tu-perfil',
-      label: 'linkedin.com/in/tu-perfil'
+      url: 'https://www.linkedin.com/in/juan-chendiaz/',
+      label: 'linkedin.com/in/juan-chendiaz'
     },
     {
       name: 'GitHub',
@@ -33,14 +33,14 @@ const Contact = () => {
           dangerouslySetInnerHTML={{ __html: siGithub.svg }}
         />
       ),
-      url: 'https://github.com/tu-usuario',
-      label: 'github.com/tu-usuario'
+      url: 'https://github.com/Juan-D15',
+      label: 'github.com/Juan-D15'
     },
     {
       name: 'Email',
       icon: <Mail className="w-8 h-8" />,
-      url: 'mailto:tu-email@ejemplo.com',
-      label: 'tu-email@ejemplo.com'
+      url: 'mailto:jdiaz45c@gmail.com',
+      label: 'jdiaz45c@gmail.com'
     }
   ];
 
@@ -63,20 +63,20 @@ const Contact = () => {
               href={link.url}
               target={link.url.startsWith('mailto') ? undefined : '_blank'}
               rel={link.url.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              className="flex flex-col items-center gap-3 text-gray-400 hover:text-primary transition-all duration-300 hover:scale-110 group"
+              className="flex flex-col items-center gap-3 text-white hover:text-primary transition-all duration-300 hover:scale-110 group"
             >
               <div className="p-4 rounded-full bg-gray-800 group-hover:bg-gray-700 transition-colors duration-300">
                 {link.icon}
               </div>
               <span className="font-medium">{link.name}</span>
-              <span className="text-sm text-gray-500">{link.label}</span>
+              <span className="text-sm text-gray-400">{link.label}</span>
             </a>
           ))}
         </div>
 
         <div className="border-t border-gray-700 pt-6">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Tu Nombre. Todos los derechos reservados.
+            © {new Date().getFullYear()} Juan Carlos Eduardo Chen Díaz. Todos los derechos reservados.
           </p>
         </div>
       </div>

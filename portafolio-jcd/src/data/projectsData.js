@@ -1,7 +1,7 @@
 const projects = [
   {
     id: "proyecto-1",
-    title: "Sistema de Gestión de Inventarios",
+    title: "Sistema de Gestión de Proyectos - AMG",
     shortDescription: "Aplicación web para gestión de stock y ventas en tiempo real.",
     fullDescription: "Este proyecto es un sistema completo de gestión de inventarios desarrollado para una empresa retail. Incluye control de stock en tiempo real, generación de reportes automáticos, alertas de bajo inventario y un panel de administración intuitivo. El backend está construido con Django y PostgreSQL, mientras que el frontend utiliza React con un diseño responsive.",
     images: [
@@ -9,7 +9,7 @@ const projects = [
       "/images/proyecto1-2.jpg",
       "/images/proyecto1-3.jpg"
     ],
-    technologies: ["React", "Django", "PostgreSQL", "Docker"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "HTML5", "CSS"],
     features: [
       "Control de stock en tiempo real",
       "Generación automática de reportes",

@@ -12,14 +12,15 @@ const skills = [
   {
     category: "Frameworks & Desarrollo Web",
     items: [
-      { name: "React", icon: "react" },
       { name: "Django", icon: "django" },
-      { name: "Node.js", icon: "nodedotjs" },
-      { name: ".NET", icon: "dotnet" },
-      { name: "HTML5", icon: "html5" },
-      { name: "CSS", icon: "css3" },
+      { name: "Vite", icon: "vite" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "React", icon: "react" },
       { name: "WordPress", icon: "wordpress" },
-      { name: "Vite", icon: "vite" }
+      { name: ".NET", icon: "dotnet" },
+      { name: "Node.js", icon: "nodedotjs" },
+      { name: "HTML5", icon: "html5" },
+      { name: "CSS", icon: "css3" }
     ]
   },
   {

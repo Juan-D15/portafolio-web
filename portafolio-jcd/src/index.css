@@ -78,4 +78,62 @@ html {
   animation: gradient-shift 16s ease infinite;
 }
 
+/* Floating icons animation for Hero section */
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  10% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.15;
+    transform: translateY(-10px) scale(1);
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+}
+
+.floating-icon {
+  animation: float-up linear infinite;
+  opacity: 0;
+}
+
+/* Staggered delays for floating icons */
+.floating-icon:nth-child(1) { animation-delay: 0s; }
+.floating-icon:nth-child(2) { animation-delay: 1s; }
+.floating-icon:nth-child(3) { animation-delay: 2s; }
+.floating-icon:nth-child(4) { animation-delay: 3s; }
+.floating-icon:nth-child(5) { animation-delay: 4s; }
+.floating-icon:nth-child(6) { animation-delay: 5s; }
+.floating-icon:nth-child(7) { animation-delay: 6s; }
+.floating-icon:nth-child(8) { animation-delay: 7s; }
+.floating-icon:nth-child(9) { animation-delay: 8s; }
+.floating-icon:nth-child(10) { animation-delay: 9s; }
+.floating-icon:nth-child(11) { animation-delay: 10s; }
+.floating-icon:nth-child(12) { animation-delay: 11s; }
+.floating-icon:nth-child(13) { animation-delay: 12s; }
+.floating-icon:nth-child(14) { animation-delay: 13s; }
+.floating-icon:nth-child(15) { animation-delay: 14s; }
+.floating-icon:nth-child(16) { animation-delay: 15s; }
+.floating-icon:nth-child(17) { animation-delay: 16s; }
+.floating-icon:nth-child(18) { animation-delay: 17s; }
+.floating-icon:nth-child(19) { animation-delay: 18s; }
+.floating-icon:nth-child(20) { animation-delay: 19s; }
+.floating-icon:nth-child(21) { animation-delay: 20s; }
+.floating-icon:nth-child(22) { animation-delay: 21s; }
+.floating-icon:nth-child(23) { animation-delay: 22s; }
+.floating-icon:nth-child(24) { animation-delay: 23s; }
+.floating-icon:nth-child(25) { animation-delay: 24s; }
+.floating-icon:nth-child(26) { animation-delay: 25s; }
+.floating-icon:nth-child(27) { animation-delay: 26s; }
+.floating-icon:nth-child(28) { animation-delay: 27s; }
+.floating-icon:nth-child(29) { animation-delay: 28s; }
+.floating-icon:nth-child(30) { animation-delay: 29s; }
 
