@@ -17,6 +17,12 @@ import {
   siUbuntu,
   siVite,
   siFastapi,
+  siTailwindcss,
+  siGit,
+  siGithub,
+  siBun,
+  siNpm,
+  siPnpm,
 } from 'simple-icons';
 import {
   Hash,
@@ -24,6 +30,9 @@ import {
   Database,
   Monitor,
   Server,
+  Flower,
+  Package,
+  Box,
 } from 'lucide-react';
 
 export const iconMap = {
@@ -46,8 +55,17 @@ export const iconMap = {
   ubuntu: siUbuntu,
   vite: siVite,
   fastapi: siFastapi,
+  tailwindcss: siTailwindcss,
+  git: siGit,
+  github: siGithub,
+  bun: siBun,
+  npm: siNpm,
+  pnpm: siPnpm,
+  pip: null,
+  uv: null,
   dokploy: null,
   server: null,
+  daisyui: null,
 };
 
 export const lucideFallbacks = {
@@ -56,6 +74,9 @@ export const lucideFallbacks = {
   microsoftsqlserver: (sizeClass) => <Database className={sizeClass} />,
   windows: (sizeClass) => <Monitor className={sizeClass} />,
   server: (sizeClass) => <Server className={sizeClass} />,
+  daisyui: (sizeClass) => <Flower className={sizeClass} />,
+  pip: (sizeClass) => <Package className={sizeClass} />,
+  uv: (sizeClass) => <Box className={sizeClass} />,
 };
 
 export const renderIcon = (iconSlug, sizeClass = "w-12 h-12 md:w-16 md:h-16") => {
