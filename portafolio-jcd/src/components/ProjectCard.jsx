@@ -1,29 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import TechBadge from './TechBadge';
 
 const ProjectCard = ({ project }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [autoPlayKey, setAutoPlayKey] = useState(0);
+  const hasMultipleImages = project.images.length > 1;
+
+  useEffect(() => {
+    if (!hasMultipleImages || isHovered) return;
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % project.images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isHovered, hasMultipleImages, autoPlayKey, project.images.length]);
+
+  const goToImage = (index) => {
+    setCurrentImage(index);
+    setAutoPlayKey((prev) => prev + 1);
+  };
 
   const nextImage = (e) => {
     e.stopPropagation();
     setCurrentImage((prev) => (prev + 1) % project.images.length);
+    setAutoPlayKey((prev) => prev + 1);
   };
 
   const prevImage = (e) => {
     e.stopPropagation();
     setCurrentImage((prev) => (prev - 1 + project.images.length) % project.images.length);
+    setAutoPlayKey((prev) => prev + 1);
   };
-
-  const hasMultipleImages = project.images.length > 1;
 
   const renderImage = (src, index) => {
     return (
       <img
         src={src}
         alt={`${project.title} - ${index + 1}`}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover object-center"
         onError={(e) => {
           e.target.style.display = 'none';
           e.target.nextSibling.style.display = 'flex';
@@ -34,12 +50,16 @@ const ProjectCard = ({ project }) => {
 
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
-      <div className="relative aspect-video max-h-[240px] md:max-h-[300px] overflow-hidden bg-gray-100">
+      <div
+        className="relative aspect-video overflow-hidden bg-gray-100 group"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="w-full h-full">
           {project.images.map((img, index) => (
             <div
               key={index}
-              className="absolute inset-0 transition-transform duration-300"
+              className="absolute inset-0 transition-transform duration-500 ease-out"
               style={{
                 transform: `translateX(${(index - currentImage) * 100}%)`,
               }}
@@ -56,13 +76,13 @@ const ProjectCard = ({ project }) => {
           <>
             <button
               onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-200"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-200"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
             >
               <ChevronRight size={20} />
             </button>
@@ -70,13 +90,13 @@ const ProjectCard = ({ project }) => {
         )}
 
         {hasMultipleImages && (
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
             {project.images.map((_, index) => (
               <button
                 key={index}
                 onClick={(e) => {
                   e.stopPropagation();
-                  setCurrentImage(index);
+                  goToImage(index);
                 }}
                 className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                   index === currentImage ? 'bg-white' : 'bg-white/50'
