@@ -11,7 +11,7 @@ const About = () => {
         <div className="w-20 h-1 bg-primary mx-auto rounded mb-8"></div>
         
         <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-          Desarrollador con experiencia en la creación de aplicaciones web escalables 
+          Cuento con experiencia en la creación de aplicaciones web escalables 
           y gestión de infraestructura. Apasionado por resolver problemas complejos con 
           soluciones elegantes y eficientes. Siempre aprendiendo nuevas tecnologías y mejorando 
           mis habilidades.
@@ -38,7 +38,7 @@ const About = () => {
             <Languages className="w-8 h-8 text-primary mx-auto mb-3" />
             <p className="text-gray-900 font-semibold mb-1">Idiomas</p>
             <p className="text-sm text-gray-500">Español - Nativo</p>
-            <p className="text-sm text-gray-500">Inglés - Técnico</p>
+            <p className="text-sm text-gray-500">Inglés - Intermedio</p>
           </div>
         </div>
       </div>
