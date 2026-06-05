@@ -9,7 +9,7 @@ const projects = [
       "/images/proyecto1-2.jpg",
       "/images/proyecto1-3.jpg"
     ],
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "HTML5", "CSS"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
     features: [
       "Control de stock en tiempo real",
       "Generación automática de reportes",

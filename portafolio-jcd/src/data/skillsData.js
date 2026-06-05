@@ -1,9 +1,11 @@
 const skills = [
   {
-    category: "Lenguajes de Programación",
+    category: "Lenguajes",
     items: [
       { name: "Python", icon: "python" },
       { name: "JavaScript", icon: "javascript" },
+      { name: "HTML5", icon: "html5" },
+      { name: "CSS", icon: "css3" },
       { name: "C#", icon: "csharp" },
       { name: "C++", icon: "cplusplus" },
       { name: "Java", icon: "java" }
@@ -13,14 +15,14 @@ const skills = [
     category: "Frameworks & Desarrollo Web",
     items: [
       { name: "Django", icon: "django" },
-      { name: "Vite", icon: "vite" },
       { name: "FastAPI", icon: "fastapi" },
-      { name: "React", icon: "react" },
+      { name: "Vite", icon: "vite" },
+      { name: "Node.js", icon: "nodedotjs" },
       { name: "WordPress", icon: "wordpress" },
       { name: ".NET", icon: "dotnet" },
-      { name: "Node.js", icon: "nodedotjs" },
-      { name: "HTML5", icon: "html5" },
-      { name: "CSS", icon: "css3" }
+      { name: "React", icon: "react" },
+      { name: "Tailwind CSS", icon: "tailwindcss" },
+      { name: "Daisy UI", icon: "daisyui" }
     ]
   },
   {
@@ -32,13 +34,20 @@ const skills = [
     ]
   },
   {
-    category: "Infraestructura & DevOps",
+    category: "Infraestructura & Herramientas",
     items: [
       { name: "Docker", icon: "docker" },
       { name: "Dokploy", icon: "dokploy" },
       { name: "Windows Server", icon: "windows" },
       { name: "Ubuntu Server", icon: "ubuntu" },
-      { name: "Administración VPS", icon: "server" }
+      { name: "Administración VPS", icon: "server" },
+      { name: "Git", icon: "git" },
+      { name: "GitHub", icon: "github" },
+      { name: "pip", icon: "pip" },
+      { name: "uv", icon: "uv" },
+      { name: "Bun", icon: "bun" },
+      { name: "npm", icon: "npm" },
+      { name: "pnpm", icon: "pnpm" }
     ]
   }
 ];
