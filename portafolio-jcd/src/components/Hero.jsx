@@ -99,12 +99,22 @@ const Hero = () => {
         <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
           Construyendo soluciones web escalables y robustas con tecnologías modernas
         </p>
-        <button
-          onClick={handleScrollToProjects}
-          className="btn btn-primary btn-lg text-lg px-8 py-3"
-        >
-          Ver mis proyectos
-        </button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="/cv/CV%20Juan%20Carlos%20Eduardo%20Chen%20D%C3%ADaz.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary btn-lg text-lg px-8 py-3"
+          >
+            Ver mi CV
+          </a>
+          <button
+            onClick={handleScrollToProjects}
+            className="btn btn-primary btn-lg text-lg px-8 py-3"
+          >
+            Ver mis proyectos
+          </button>
+        </div>
       </div>
 
       <div className="absolute bottom-8 animate-bounce z-10">

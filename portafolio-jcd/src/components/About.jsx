@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, GraduationCap, Briefcase } from 'lucide-react';
+import { MapPin, GraduationCap, Briefcase, Languages } from 'lucide-react';
 
 const About = () => {
   return (
@@ -12,12 +12,12 @@ const About = () => {
         
         <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
           Desarrollador con experiencia en la creación de aplicaciones web escalables 
-          y gestión de infraestructura DevOps. Apasionado por resolver problemas complejos con 
+          y gestión de infraestructura. Apasionado por resolver problemas complejos con 
           soluciones elegantes y eficientes. Siempre aprendiendo nuevas tecnologías y mejorando 
           mis habilidades.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
           <div className="bg-gray-50 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
             <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
             <p className="text-gray-900 font-semibold mb-1">Ubicación</p>
@@ -33,6 +33,12 @@ const About = () => {
             <Briefcase className="w-8 h-8 text-primary mx-auto mb-3" />
             <p className="text-gray-900 font-semibold mb-1">Experiencia</p>
             <p className="text-sm text-gray-500">Desarrollo de aplicaciones web modernas</p>
+          </div>
+          <div className="bg-gray-50 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+            <Languages className="w-8 h-8 text-primary mx-auto mb-3" />
+            <p className="text-gray-900 font-semibold mb-1">Idiomas</p>
+            <p className="text-sm text-gray-500">Español - Nativo</p>
+            <p className="text-sm text-gray-500">Inglés - Técnico</p>
           </div>
         </div>
       </div>
