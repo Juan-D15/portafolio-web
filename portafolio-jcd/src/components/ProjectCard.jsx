@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import TechBadge from './TechBadge';
 
 const ProjectCard = ({ project }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -96,12 +97,7 @@ const ProjectCard = ({ project }) => {
 
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full border border-gray-200"
-            >
-              {tech}
-            </span>
+            <TechBadge key={tech} name={tech} />
           ))}
         </div>
 
