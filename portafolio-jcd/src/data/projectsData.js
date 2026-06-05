@@ -2,20 +2,34 @@ const projects = [
   {
     id: "proyecto-1",
     title: "Sistema de Gestión de Proyectos - AMG",
-    shortDescription: "Aplicación web para gestión de stock y ventas en tiempo real.",
-    fullDescription: "Este proyecto es un sistema completo de gestión de inventarios desarrollado para una empresa retail. Incluye control de stock en tiempo real, generación de reportes automáticos, alertas de bajo inventario y un panel de administración intuitivo. El backend está construido con Django y PostgreSQL, mientras que el frontend utiliza React con un diseño responsive.",
+    shortDescription: "Sistema de gestión para el control de proyectos realizados por la Asociación Maya Guatemala - AMG.",
+    fullDescription: "La Asociación gestionaba sus proyectos sociales y beneficiarios con hojas de Excel dispersas, generando duplicidad de datos, falta de control presupuestario y reportes lentos. Como solución, desarrollé un sistema web completo que centraliza la gestión de proyectos por fases, el censo de beneficiarios, la ejecución presupuestaria y la carga de evidencias, con generación de reportes exportables en PDF y Excel. El sistema implementa autenticación segura, control de acceso por roles y bitácoras de auditoría, garantizando la integridad de la información. Gracias a esto, la organización eliminó la dispersión de datos, obtuvo visibilidad en tiempo real sobre sus proyectos y redujo la generación de informes de días a segundos.",
     images: [
-      "/images/proyecto1-1.jpg",
-      "/images/proyecto1-2.jpg",
-      "/images/proyecto1-3.jpg"
+      "/images/amg/logo.jpg",
+      "/images/amg/inicio2-amg.png",
+      "/images/amg/dash2-amg.png",
+      "/images/amg/pr2-amg.png",
+      "/images/amg/bn1-amg.png",
+      "/images/amg/bn2-amg.png",
+      "/images/amg/bn3-amg.png",
+      "/images/amg/ejc1-amg.png",
+      "/images/amg/ejc3-amg.png",
+      "/images/amg/ejc2-amg.png",
+      "/images/amg/rep1-amg.png",
+      "/images/amg/rep2-amg.png",
+      "/images/amg/adm1-amg.png",
+      "/images/amg/adm2-amg.png",
+      "/images/amg/adm3-amg.png",
+      "/images/amg/adm4-amg.png"
     ],
     technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
     features: [
-      "Control de stock en tiempo real",
-      "Generación automática de reportes",
-      "Alertas de bajo inventario",
-      "Panel de administración intuitivo",
-      "API RESTful documentada"
+      "Gestión centralizada de proyectos",
+      "Censo de beneficiarios en tiempo real",
+      "Control presupuestario detallado",
+      "Generación de reportes en segundos",
+      "Control de acceso por roles",
+      "Bitácora de auditoría completa"
     ],
     liveUrl: "",
     githubUrl: ""
