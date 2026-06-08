@@ -27,7 +27,7 @@ const About = () => {
             <GraduationCap className="w-8 h-8 text-primary mx-auto mb-3" />
             <p className="text-gray-900 font-semibold mb-1">Formación</p>
             <p className="text-sm text-gray-500">Ingeniería en Ciencias y Sistemas</p>
-            <p className="text-sm text-gray-500">5to. año - 10mo. Semestre</p>
+            <p className="text-sm text-gray-500">5to. año - 9no. Semestre</p>
           </div>
           <div className="bg-gray-50 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
             <Briefcase className="w-8 h-8 text-primary mx-auto mb-3" />
