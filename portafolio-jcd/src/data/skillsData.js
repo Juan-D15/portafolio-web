@@ -18,6 +18,7 @@ const skills = [
       { name: "FastAPI", icon: "fastapi" },
       { name: "Vite", icon: "vite" },
       { name: "Node.js", icon: "nodedotjs" },
+      { name: "Next.js", icon: "nextdotjs" },
       { name: "WordPress", icon: "wordpress" },
       { name: ".NET", icon: "dotnet" },
       { name: "React", icon: "react" },
