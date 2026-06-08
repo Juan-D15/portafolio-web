@@ -22,7 +22,7 @@ const projects = [
       "/images/amg/adm3-amg.png",
       "/images/amg/adm4-amg.png"
     ],
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS", "React"],
     features: [
       "Gestión centralizada de proyectos",
       "Censo de beneficiarios en tiempo real",
@@ -36,22 +36,29 @@ const projects = [
   },
   {
     id: "proyecto-2",
-    title: "Plataforma de E-learning",
-    shortDescription: "Plataforma educativa con cursos, quizzes y seguimiento de progreso.",
-    fullDescription: "Plataforma de aprendizaje en línea diseñada para instituciones educativas. Permite la creación de cursos, gestión de estudiantes, seguimiento de progreso y evaluaciones automáticas. Incluye panel para instructores y estudiantes con roles diferenciados.",
+    title: "Gestor de Eventos MAGA - PURULHÁ",
+    shortDescription: "Sistema web para registrar, dar seguimiento y mapear las capacitaciones, entregas y ayudas que ejecuta la oficina regional del MAGA en Purulhá.",
+    fullDescription: "La oficina regional del Ministerio de Agricultura de Purulhá gestionaba sus actividades de campo con Excel, Word y papel, lo que provocaba duplicidad de datos, pérdida de información histórica y retrasos en la elaboración de informes. Se desarrolló un sistema web que centraliza el registro de capacitaciones, entregas y ayudas vinculadas a beneficiarios y comunidades, con formulario responsivo para captura desde el móvil. Incluye un mapa interactivo que visualiza las actividades por comunidad con filtros en tiempo real, generación de reportes exportables en Word y PDF, y un módulo de usuarios con control de acceso por roles y bitácora de auditoría. Como resultado, la oficina eliminó el uso de registros manuales, mejoró la trazabilidad de sus operaciones y redujo el tiempo de generación de informes.",
     images: [
-      "/images/proyecto2-1.jpg",
-      "/images/proyecto2-2.jpg"
+      "/images/mgpurl/inicio1-mgp.png",
+      "/images/mgpurl/dash1-mgp.png",
+      "/images/mgpurl/pr1-mgp.png",
+      "/images/mgpurl/pr2-mgp.png",
+      "/images/mgpurl/pr3-mgp.png",
+      "/images/mgpurl/cm1-mgp.png",
+      "/images/mgpurl/rg1-mgp.png",
+      "/images/mgpurl/conf1-mgp.png"      
     ],
-    technologies: ["Node.js", "React", "MySQL", "HTML5", "CSS"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
     features: [
-      "Creación y gestión de cursos",
-      "Sistema de quizzes y evaluaciones",
-      "Seguimiento de progreso del estudiante",
-      "Roles diferenciados (instructor/estudiante)",
-      "Panel de analytics"
+      "Registro centralizado de eventos y actividades de campo",
+      "Mapa interactivo de actividades por comunidad y región",
+      "Reportes automáticos exportables en Word y PDF",
+      "Calendario de eventos con notificaciones",
+      "Modo sin conexión para captura de datos en campo",
+      "Bitácora completa de trazabilidad y auditoría"
     ],
-    liveUrl: "",
+    liveUrl: "https://magapurulha.org/",
     githubUrl: ""
   },
   {
