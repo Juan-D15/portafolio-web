@@ -60,47 +60,6 @@ const projects = [
     ],
     liveUrl: "https://magapurulha.org/",
     githubUrl: ""
-  },
-  {
-    id: "proyecto-3",
-    title: "Dashboard DevOps",
-    shortDescription: "Dashboard para monitoreo de contenedores y servidores.",
-    fullDescription: "Herramienta de monitoreo para infraestructura DevOps. Visualiza el estado de contenedores Docker, uso de recursos de servidores VPS y alertas de servicios. Integra métricas en tiempo real desde múltiples servidores.",
-    images: [
-      "/images/proyecto3-1.jpg",
-      "/images/proyecto3-2.jpg",
-      "/images/proyecto3-3.jpg"
-    ],
-    technologies: ["React", "Node.js", "Docker", "Ubuntu Server"],
-    features: [
-      "Monitoreo de contenedores Docker en tiempo real",
-      "Métricas de uso de CPU, RAM y disco",
-      "Alertas configurables por servicio",
-      "Soporte multi-servidor",
-      "Interfaz responsive"
-    ],
-    liveUrl: "",
-    githubUrl: ""
-  },
-  {
-    id: "proyecto-4",
-    title: "API RESTful de Pagos",
-    shortDescription: "API segura para procesamiento de pagos y transacciones.",
-    fullDescription: "API RESTful desarrollada para integrar sistemas de pagos. Soporta múltiples métodos de pago, validación de transacciones, generación de facturas y reportes financieros. Construida con .NET y SQL Server para alta disponibilidad.",
-    images: [
-      "/images/proyecto4-1.jpg",
-      "/images/proyecto4-2.jpg"
-    ],
-    technologies: [".NET", "C#", "SQL Server", "Docker"],
-    features: [
-      "Procesamiento seguro de pagos",
-      "Soporte para múltiples métodos de pago",
-      "Validación y auditoría de transacciones",
-      "Generación automática de facturas",
-      "Reportes financieros detallados"
-    ],
-    liveUrl: "",
-    githubUrl: ""
   }
 ];
 
