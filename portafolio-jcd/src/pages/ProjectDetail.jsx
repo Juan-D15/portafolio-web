@@ -6,13 +6,13 @@ import {
   ChevronLeft,
   ChevronRight,
   ExternalLink, 
-  Code, 
   Info, 
   ListChecks, 
   Layers,
   Maximize2,
   X
 } from 'lucide-react';
+import { siGithub } from 'simple-icons';
 import projectsData from '../data/projectsData';
 import TechTag from '../components/TechTag';
 
@@ -222,7 +222,7 @@ const ProjectDetail = () => {
         )}
 
         {/* Botones de acción */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
@@ -231,7 +231,7 @@ const ProjectDetail = () => {
               className="btn btn-primary btn-lg text-lg px-8 hover:scale-105 transition-transform duration-300"
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              Ver demo
+              Ver Web
             </a>
           )}
           {project.githubUrl && (
@@ -241,8 +241,8 @@ const ProjectDetail = () => {
               rel="noopener noreferrer"
               className="btn btn-outline btn-primary btn-lg text-lg px-8 hover:scale-105 transition-transform duration-300"
             >
-              <Code className="w-5 h-5 mr-2" />
-              Ver código
+              <svg role="img" viewBox="0 0 24 24" className="w-5 h-5 mr-2" fill="currentColor" dangerouslySetInnerHTML={{ __html: siGithub.svg }} />
+              Ver Proyecto
             </a>
           )}
         </div>
