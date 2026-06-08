@@ -1,21 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
 import TechBadge from './TechBadge';
 
 const ProjectCard = ({ project }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [autoPlayKey, setAutoPlayKey] = useState(0);
-  const hasMultipleImages = project.images.length > 1;
+  const displayImages = project.images.slice(0, 4);
+  const hasMultipleImages = displayImages.length > 1;
 
   useEffect(() => {
     if (!hasMultipleImages || isHovered) return;
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % project.images.length);
+      setCurrentImage((prev) => (prev + 1) % displayImages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [isHovered, hasMultipleImages, autoPlayKey, project.images.length]);
+  }, [isHovered, hasMultipleImages, autoPlayKey, displayImages.length]);
 
   const goToImage = (index) => {
     setCurrentImage(index);
@@ -56,7 +57,7 @@ const ProjectCard = ({ project }) => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="w-full h-full">
-          {project.images.map((img, index) => (
+          {displayImages.map((img, index) => (
             <div
               key={index}
               className="absolute inset-0 transition-transform duration-500 ease-out"
@@ -91,7 +92,7 @@ const ProjectCard = ({ project }) => {
 
         {hasMultipleImages && (
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-            {project.images.map((_, index) => (
+            {displayImages.map((_, index) => (
               <button
                 key={index}
                 onClick={(e) => {
@@ -121,13 +122,26 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
 
-        <Link
-          to={`/proyecto/${project.id}`}
-          className="inline-flex items-center text-primary font-semibold hover:underline group"
-        >
-          Ver detalles
-          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            to={`/proyecto/${project.id}`}
+            className="inline-flex items-center text-primary font-semibold hover:underline group"
+          >
+            Ver detalles
+            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-8 h-8 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors"
+              aria-label="Visitar sitio web"
+            >
+              <ExternalLink size={16} />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
