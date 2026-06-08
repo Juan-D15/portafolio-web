@@ -23,6 +23,8 @@ const nameToSlugMap = {
   '.NET': 'dotnet',
   'Node.js': 'nodedotjs',
   'Node': 'nodedotjs',
+  'Next.js': 'nextdotjs',
+  'Next': 'nextdotjs',
   'Tailwind CSS': 'tailwindcss',
   'Tailwind': 'tailwindcss',
   'DaisyUI': 'daisyui',
