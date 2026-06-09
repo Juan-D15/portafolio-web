@@ -3,6 +3,7 @@ const skills = [
     category: "Lenguajes",
     items: [
       { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
       { name: "JavaScript", icon: "javascript" },
       { name: "HTML5", icon: "html5" },
       { name: "CSS", icon: "css3" },

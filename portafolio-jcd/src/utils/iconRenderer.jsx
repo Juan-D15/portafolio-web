@@ -2,6 +2,7 @@ import React from 'react';
 import {
   siPython,
   siJavascript,
+  siTypescript,
   siC,
   siCplusplus,
   siReact,
@@ -39,6 +40,7 @@ import {
 export const iconMap = {
   python: siPython,
   javascript: siJavascript,
+  typescript: siTypescript,
   csharp: siC,
   cplusplus: siCplusplus,
   java: null,

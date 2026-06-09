@@ -4,6 +4,8 @@
 const nameToSlugMap = {
   // Lenguajes
   'Python': 'python',
+  'TypeScript': 'typescript',
+  'TS': 'typescript',
   'JavaScript': 'javascript',
   'JS': 'javascript',
   'HTML5': 'html5',
