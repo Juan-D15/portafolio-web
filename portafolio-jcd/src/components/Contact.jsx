@@ -53,7 +53,7 @@ const Contact = () => {
         <div className="w-20 h-1 bg-primary mx-auto rounded mb-6"></div>
         
         <p className="text-gray-400 text-lg mb-10">
-          ¿Tienes un proyecto en mente? Conectemos.
+          ¿Tienes un proyecto en mente?
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mb-16">
