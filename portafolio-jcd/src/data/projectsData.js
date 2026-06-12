@@ -22,7 +22,7 @@ const projects = [
       "/images/amg/adm3-amg.png",
       "/images/amg/adm4-amg.png"
     ],
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS", "React"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS", "React", "Vite"],
     features: [
       "Gestión centralizada de proyectos",
       "Censo de beneficiarios en tiempo real",
@@ -60,6 +60,25 @@ const projects = [
     ],
     liveUrl: "https://magapurulha.org/",
     githubUrl: ""
+  },
+  {
+    id: "proyecto-3",
+    title: "Portafolio Web",
+    shortDescription: "Mi Portafolio Web",
+    fullDescription: "Portafolio web personalizado que muestra mis proyectos, habilidades y experiencia. Incluye secciones para descripción del proyecto, tecnologías utilizadas y características principales de los proyectos. ",
+    images: [
+      "/images/portfolio/ini-port.png",
+      "/images/portfolio/ini-port2.png"
+    ],
+    technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
+    features: [
+      "Diseño responsivo y moderno",
+      "Sección de proyectos con detalles y tecnologías utilizadas",
+      "Sección de habilidades con iconos personalizados",
+      "Navegación intuitiva",
+    ],
+    liveUrl: "https://www.jc-portfolio.cc/",
+    githubUrl: "https://github.com/Juan-D15/portafolio-web.git"
   }
 ];
 
