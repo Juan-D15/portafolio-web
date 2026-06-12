@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ProjectDetail from './pages/ProjectDetail';
+import CvPage from './pages/CvPage';
 
 const LandingPage = () => (
   <>
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/proyecto/:id" element={<ProjectDetail />} />
+        <Route path="/cv" element={<CvPage />} />
       </Routes>
     </div>
   );
