@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import skillsData from '../data/skillsData';
 import { renderIcon } from '../utils/iconRenderer.jsx';
@@ -100,14 +101,12 @@ const Hero = () => {
           Construyendo soluciones web escalables y robustas con tecnologías modernas
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="/cv/CV%20Juan%20Carlos%20Eduardo%20Chen%20D%C3%ADaz.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/cv"
             className="btn btn-primary btn-lg text-lg px-8 py-3"
           >
             Ver mi CV
-          </a>
+          </Link>
           <button
             onClick={handleScrollToProjects}
             className="btn btn-primary btn-lg text-lg px-8 py-3"
