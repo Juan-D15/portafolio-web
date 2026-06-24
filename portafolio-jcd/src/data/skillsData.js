@@ -32,7 +32,8 @@ const skills = [
     items: [
       { name: "PostgreSQL", icon: "postgresql" },
       { name: "MySQL", icon: "mysql" },
-      { name: "SQL Server", icon: "microsoftsqlserver" }
+      { name: "SQL Server", icon: "microsoftsqlserver" },
+      { name: "Redis", icon: "redis" }
     ]
   },
   {

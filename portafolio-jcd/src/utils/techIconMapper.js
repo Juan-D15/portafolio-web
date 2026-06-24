@@ -35,6 +35,7 @@ const nameToSlugMap = {
   // Bases de Datos
   'PostgreSQL': 'postgresql',
   'MySQL': 'mysql',
+  'Redis': 'redis',
   'SQL Server': 'microsoftsqlserver',
   
   // Infraestructura & DevOps
