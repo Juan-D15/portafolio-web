@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 import CvPage from './pages/CvPage';
+import ScrollToTop from './components/ScrollToTop';
 
 const LandingPage = () => (
   <>
@@ -28,6 +29,7 @@ function App() {
         <Route path="/proyecto/:id" element={<ProjectDetail />} />
         <Route path="/cv" element={<CvPage />} />
       </Routes>
+      <ScrollToTop />
     </div>
   );
 }
