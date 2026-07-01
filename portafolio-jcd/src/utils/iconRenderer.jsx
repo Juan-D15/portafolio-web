@@ -27,17 +27,21 @@ import {
   siNpm,
   siPnpm,
   siNestjs,
+  siUv,
 } from 'simple-icons';
 import {
   Hash,
   Coffee,
   Database,
-  Monitor,
   Server,
   Flower,
   Package,
-  Box,
 } from 'lucide-react';
+
+// Icono personalizado de Windows (logo 4 rectángulos) compatible con fill="currentColor"
+const siWindowsCustom = {
+  svg: '<path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>'
+};
 
 export const iconMap = {
   python: siPython,
@@ -58,7 +62,6 @@ export const iconMap = {
   mysql: siMysql,
   redis: siRedis,
   docker: siDocker,
-  windows: null,
   ubuntu: siUbuntu,
   vite: siVite,
   fastapi: siFastapi,
@@ -69,8 +72,9 @@ export const iconMap = {
   npm: siNpm,
   pnpm: siPnpm,
   pip: null,
-  uv: null,
+  uv: siUv,
   dokploy: null,
+  windows: siWindowsCustom,
   server: null,
   daisyui: null,
   nestjs: siNestjs,
@@ -80,11 +84,9 @@ export const lucideFallbacks = {
   csharp: (sizeClass) => <Hash className={sizeClass} />,
   java: (sizeClass) => <Coffee className={sizeClass} />,
   microsoftsqlserver: (sizeClass) => <Database className={sizeClass} />,
-  windows: (sizeClass) => <Monitor className={sizeClass} />,
   server: (sizeClass) => <Server className={sizeClass} />,
   daisyui: (sizeClass) => <Flower className={sizeClass} />,
   pip: (sizeClass) => <Package className={sizeClass} />,
-  uv: (sizeClass) => <Box className={sizeClass} />,
 };
 
 export const renderIcon = (iconSlug, sizeClass = "w-12 h-12 md:w-16 md:h-16") => {
@@ -101,17 +103,17 @@ export const renderIcon = (iconSlug, sizeClass = "w-12 h-12 md:w-16 md:h-16") =>
       />
     );
   }
-
   if (iconSlug === 'dokploy') {
     return (
-      <img
-        src="/dokploy.webp"
-        alt="Dokploy"
-        className={`${sizeClass} object-contain brightness-0 invert`}
-        loading="lazy"
+      <span
+        className={`${sizeClass} dokploy-icon inline-block`}
+        role="img"
+        aria-label="Dokploy"
       />
     );
   }
+
+
   
   const fallbackFn = lucideFallbacks[iconSlug];
   return fallbackFn ? fallbackFn(sizeClass) : null;
