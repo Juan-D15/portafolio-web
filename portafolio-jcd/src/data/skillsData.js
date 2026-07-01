@@ -37,13 +37,18 @@ const skills = [
     ]
   },
   {
-    category: "Infraestructura & Herramientas",
+    category: "Infraestructura",
     items: [
       { name: "Docker", icon: "docker" },
       { name: "Dokploy", icon: "dokploy" },
       { name: "Windows Server", icon: "windows" },
       { name: "Ubuntu Server", icon: "ubuntu" },
-      { name: "Administración VPS", icon: "server" },
+      { name: "Administración VPS", icon: "server" }
+    ]
+  },
+  {
+    category: "Herramientas",
+    items: [
       { name: "Git", icon: "git" },
       { name: "GitHub", icon: "github" },
       { name: "pip", icon: "pip" },
