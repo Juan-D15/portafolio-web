@@ -91,8 +91,9 @@ const Hero = () => {
 
       {/* Main content */}
       <div className="text-center max-w-4xl mx-auto relative z-10">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-          Juan Carlos Eduardo Chen Díaz
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 flex flex-col items-center">
+          <span>Juan Carlos Eduardo</span>
+          <span>Chen Díaz</span>
         </h1>
         <p className="text-xl md:text-2xl text-primary mb-2 font-medium">
           Desarrollador de Software Junior | Frontend & Backend
