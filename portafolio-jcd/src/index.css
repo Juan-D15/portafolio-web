@@ -137,3 +137,17 @@ html {
 .floating-icon:nth-child(29) { animation-delay: 28s; }
 .floating-icon:nth-child(30) { animation-delay: 29s; }
 
+/* Dokploy icon: usa mask-image con el webp para que siga el currentColor como los SVG */
+.dokploy-icon {
+  background-color: currentColor;
+  -webkit-mask-image: url('/dokploy.webp');
+  mask-image: url('/dokploy.webp');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  transition: background-color 0.3s ease;
+}
+
