@@ -26,6 +26,7 @@ import {
   siBun,
   siNpm,
   siPnpm,
+  siNestjs,
 } from 'simple-icons';
 import {
   Hash,
@@ -72,6 +73,7 @@ export const iconMap = {
   dokploy: null,
   server: null,
   daisyui: null,
+  nestjs: siNestjs,
 };
 
 export const lucideFallbacks = {

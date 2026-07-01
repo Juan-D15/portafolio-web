@@ -31,6 +31,9 @@ const nameToSlugMap = {
   'Tailwind': 'tailwindcss',
   'DaisyUI': 'daisyui',
   'Daisy UI': 'daisyui',
+  'NestJS': 'nestjs',
+  'Nest.js': 'nestjs',
+  'Nest': 'nestjs',
   
   // Bases de Datos
   'PostgreSQL': 'postgresql',
