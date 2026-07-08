@@ -10,9 +10,11 @@ html {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -20,60 +22,83 @@ html {
 
 /* Dark sections - deep blue-gray tones complementing primary accent */
 .animated-gradient-dark {
-  background: linear-gradient(
-    -45deg,
-    #0f172a,
-    #1e293b,
-    #0f172a,
-    #1e3a5f,
-    #0f172a,
-    #111827
-  );
+  background: linear-gradient(-45deg,
+      #0f172a,
+      #1e293b,
+      #0f172a,
+      #1e3a5f,
+      #0f172a,
+      #111827);
   background-size: 400% 400%;
   animation: gradient-shift 15s ease infinite;
 }
 
 /* Light sections - soft cool gray tones */
 .animated-gradient-light {
-  background: linear-gradient(
-    -45deg,
-    #f8fafc,
-    #e2e8f0,
-    #f1f5f9,
-    #e2e8f0,
-    #f8fafc,
-    #f1f5f9
-  );
+  background: linear-gradient(-45deg,
+      #f8fafc,
+      #e2e8f0,
+      #f1f5f9,
+      #e2e8f0,
+      #f8fafc,
+      #f1f5f9);
   background-size: 400% 400%;
   animation: gradient-shift 18s ease infinite;
 }
 
 /* Hero - dramatic deep blue with subtle purple undertones */
+/* GPU-composited: uses transform on pseudo-element instead of background-position */
 .animated-gradient-hero {
-  background: linear-gradient(
-    -45deg,
-    #0a0a0a,
-    #0f172a,
-    #1e3a5f,
-    #0f172a,
-    #0a0a0a,
-    #111827
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 20s ease infinite;
+  background: #0a0a0a;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-gradient-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  background: linear-gradient(-45deg,
+      #0a0a0a,
+      #0f172a,
+      #1e3a5f,
+      #0f172a,
+      #0a0a0a,
+      #111827);
+  animation: gradient-hero-gpu 20s ease infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes gradient-hero-gpu {
+  0% {
+    transform: translate3d(0, -37.5%, 0);
+  }
+
+  50% {
+    transform: translate3d(-75%, -37.5%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -37.5%, 0);
+  }
 }
 
 /* Projects section - very subtle cool white-gray */
 .animated-gradient-warm {
-  background: linear-gradient(
-    -45deg,
-    #f8fafc,
-    #f1f5f9,
-    #e2e8f0,
-    #f8fafc,
-    #f1f5f9,
-    #e2e8f0
-  );
+  background: linear-gradient(-45deg,
+      #f8fafc,
+      #f1f5f9,
+      #e2e8f0,
+      #f8fafc,
+      #f1f5f9,
+      #e2e8f0);
   background-size: 400% 400%;
   animation: gradient-shift 16s ease infinite;
 }
@@ -82,60 +107,33 @@ html {
 @keyframes float-up {
   0% {
     opacity: 0;
-    transform: translateY(20px) scale(0.8);
   }
-  10% {
-    opacity: 0.1;
-  }
-  50% {
+
+  15% {
     opacity: 0.15;
-    transform: translateY(-10px) scale(1);
   }
-  90% {
-    opacity: 0.1;
+
+  50% {
+    opacity: 0.18;
   }
+
+  85% {
+    opacity: 0.15;
+  }
+
   100% {
     opacity: 0;
-    transform: translateY(-30px) scale(0.9);
   }
 }
 
 .floating-icon {
-  animation: float-up linear infinite;
+  animation: float-up ease-in-out infinite;
   opacity: 0;
+  will-change: opacity;
+  contain: layout style paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
-
-/* Staggered delays for floating icons */
-.floating-icon:nth-child(1) { animation-delay: 0s; }
-.floating-icon:nth-child(2) { animation-delay: 1s; }
-.floating-icon:nth-child(3) { animation-delay: 2s; }
-.floating-icon:nth-child(4) { animation-delay: 3s; }
-.floating-icon:nth-child(5) { animation-delay: 4s; }
-.floating-icon:nth-child(6) { animation-delay: 5s; }
-.floating-icon:nth-child(7) { animation-delay: 6s; }
-.floating-icon:nth-child(8) { animation-delay: 7s; }
-.floating-icon:nth-child(9) { animation-delay: 8s; }
-.floating-icon:nth-child(10) { animation-delay: 9s; }
-.floating-icon:nth-child(11) { animation-delay: 10s; }
-.floating-icon:nth-child(12) { animation-delay: 11s; }
-.floating-icon:nth-child(13) { animation-delay: 12s; }
-.floating-icon:nth-child(14) { animation-delay: 13s; }
-.floating-icon:nth-child(15) { animation-delay: 14s; }
-.floating-icon:nth-child(16) { animation-delay: 15s; }
-.floating-icon:nth-child(17) { animation-delay: 16s; }
-.floating-icon:nth-child(18) { animation-delay: 17s; }
-.floating-icon:nth-child(19) { animation-delay: 18s; }
-.floating-icon:nth-child(20) { animation-delay: 19s; }
-.floating-icon:nth-child(21) { animation-delay: 20s; }
-.floating-icon:nth-child(22) { animation-delay: 21s; }
-.floating-icon:nth-child(23) { animation-delay: 22s; }
-.floating-icon:nth-child(24) { animation-delay: 23s; }
-.floating-icon:nth-child(25) { animation-delay: 24s; }
-.floating-icon:nth-child(26) { animation-delay: 25s; }
-.floating-icon:nth-child(27) { animation-delay: 26s; }
-.floating-icon:nth-child(28) { animation-delay: 27s; }
-.floating-icon:nth-child(29) { animation-delay: 28s; }
-.floating-icon:nth-child(30) { animation-delay: 29s; }
 
 /* Dokploy icon: usa mask-image con el webp para que siga el currentColor como los SVG */
 .dokploy-icon {
@@ -150,4 +148,3 @@ html {
   mask-position: center;
   transition: background-color 0.3s ease;
 }
-
