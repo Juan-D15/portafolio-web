@@ -4,8 +4,8 @@ import { ArrowLeft } from 'lucide-react';
 
 const CvPage = () => {
   return (
-    <div className="h-screen animated-gradient-hero flex flex-col">
-      <div className="py-6 px-4 flex-shrink-0">
+    <div className="animated-gradient-hero flex flex-col" style={{ height: '100dvh' }}>
+      <div className="py-6 px-4 flex-shrink-0 relative z-10">
         <div className="max-w-5xl">
           <Link
             to="/"
@@ -16,7 +16,7 @@ const CvPage = () => {
           </Link>
         </div>
       </div>
-      <div className="flex-1 px-4 pb-4 min-h-0">
+      <div className="flex-1 px-4 pb-4 min-h-0 relative z-10">
         <embed
           src="/cv/CV%20Juan%20Carlos%20Eduardo%20Chen%20D%C3%ADaz.pdf"
           type="application/pdf"
