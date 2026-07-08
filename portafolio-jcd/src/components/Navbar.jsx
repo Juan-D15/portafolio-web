@@ -1,34 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavbar } from '../hooks/useNavbar';
+
+const navLinks = [
+  { name: 'Inicio', href: '#inicio' },
+  { name: 'Sobre mí', href: '#sobre-mi' },
+  { name: 'Habilidades', href: '#habilidades' },
+  { name: 'Proyectos', href: '#proyectos' },
+  { name: 'Contacto', href: '#contacto' },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Sobre mí', href: '#sobre-mi' },
-    { name: 'Habilidades', href: '#habilidades' },
-    { name: 'Proyectos', href: '#proyectos' },
-    { name: 'Contacto', href: '#contacto' },
-  ];
-
-  const handleClick = (e, href) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false);
-  };
+  const { isOpen, scrolled, toggleMenu, handleClick } = useNavbar();
 
   return (
     <nav
@@ -59,7 +42,7 @@ const Navbar = () => {
 
           <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMenu}
               className="text-gray-300 hover:text-white p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
