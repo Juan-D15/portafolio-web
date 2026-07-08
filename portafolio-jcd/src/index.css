@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Animated gradient backgrounds - matching project color palette */
+/* Fondos de gradiente animados - coincidentes con la paleta de colores del proyecto */
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -20,7 +20,7 @@ html {
   }
 }
 
-/* Dark sections - deep blue-gray tones complementing primary accent */
+/* Secciones oscuras - tonos gris azulado profundos que complementan el acento principal */
 .animated-gradient-dark {
   background: linear-gradient(-45deg,
       #0f172a,
@@ -33,7 +33,7 @@ html {
   animation: gradient-shift 15s ease infinite;
 }
 
-/* Light sections - soft cool gray tones */
+/* Secciones claras - tonos suaves de gris frío */
 .animated-gradient-light {
   background: linear-gradient(-45deg,
       #f8fafc,
@@ -46,8 +46,8 @@ html {
   animation: gradient-shift 18s ease infinite;
 }
 
-/* Hero - dramatic deep blue with subtle purple undertones */
-/* GPU-composited: uses transform on pseudo-element instead of background-position */
+/* Hero - azul profundo dramático con matices sutiles de morado */
+/* Compuesto por GPU: usa transform en un pseudo-elemento en lugar de background-position */
 .animated-gradient-hero {
   background: #0a0a0a;
   isolation: isolate;
@@ -90,7 +90,7 @@ html {
   }
 }
 
-/* Projects section - very subtle cool white-gray */
+/* Sección de proyectos - gris blanco frío muy sutil */
 .animated-gradient-warm {
   background: linear-gradient(-45deg,
       #f8fafc,
@@ -103,7 +103,7 @@ html {
   animation: gradient-shift 16s ease infinite;
 }
 
-/* Floating icons animation for Hero section */
+/* Animación de iconos flotantes para la sección Hero */
 @keyframes float-up {
   0% {
     opacity: 0;
