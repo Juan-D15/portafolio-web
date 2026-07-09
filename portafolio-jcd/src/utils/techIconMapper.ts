@@ -1,7 +1,7 @@
 // src/utils/techIconMapper.js
 // Mapea nombres de tecnología (como aparecen en projectsData) a slugs de iconos
 
-const nameToSlugMap = {
+const nameToSlugMap: Record<string, string> = {
   // Lenguajes
   'Python': 'python',
   'TypeScript': 'typescript',
@@ -56,7 +56,7 @@ const nameToSlugMap = {
   'pnpm': 'pnpm',
 };
 
-export const getTechIcon = (techName) => {
+export const getTechIcon = (techName: string | undefined | null): string | null => {
   if (!techName) return null;
   
   // 1. Buscar mapeo directo

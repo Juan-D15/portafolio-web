@@ -3,7 +3,11 @@ import React from 'react';
 import { getTechIcon } from '../utils/techIconMapper';
 import { renderIcon } from '../utils/iconRenderer';
 
-const TechBadge = ({ name }) => {
+interface TechBadgeProps {
+  name: string;
+}
+
+const TechBadge: React.FC<TechBadgeProps> = ({ name }) => {
   const iconSlug = getTechIcon(name);
   const icon = renderIcon(iconSlug, 'w-4 h-4');
   

@@ -1,4 +1,6 @@
-const skills = [
+import { SkillCategory } from '../types';
+
+const skills: SkillCategory[] = [
   {
     category: "Lenguajes",
     items: [

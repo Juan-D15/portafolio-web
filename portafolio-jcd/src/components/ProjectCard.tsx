@@ -4,7 +4,13 @@ import { ChevronLeft, ChevronRight, ArrowRight, ExternalLink } from 'lucide-reac
 import TechBadge from './TechBadge';
 import { useProjectCard } from '../hooks/useProjectCard';
 
-const ProjectCard = ({ project }) => {
+import { Project } from '../types';
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const {
     currentImage,
     isHovered,
@@ -16,15 +22,18 @@ const ProjectCard = ({ project }) => {
     prevImage,
   } = useProjectCard(project);
 
-  const renderImage = (src, index) => {
+  const renderImage = (src: string, index: number) => {
     return (
       <img
         src={src}
         alt={`${project.title} - ${index + 1}`}
         className="w-full h-full object-cover object-center"
-        onError={(e) => {
-          e.target.style.display = 'none';
-          e.target.nextSibling.style.display = 'flex';
+        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+          e.currentTarget.style.display = 'none';
+          const nextSibling = e.currentTarget.nextElementSibling as HTMLElement;
+          if (nextSibling) {
+            nextSibling.style.display = 'flex';
+          }
         }}
       />
     );

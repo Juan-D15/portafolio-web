@@ -20,7 +20,7 @@ export const useNavbar = () => {
     setIsOpen(false);
   }, []);
 
-  const handleClick = useCallback((e, href) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {

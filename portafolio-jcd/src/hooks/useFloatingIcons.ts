@@ -1,12 +1,13 @@
 import { useState, useCallback, useMemo } from 'react';
 import skillsData from '../data/skillsData';
+import { Skill, FloatingSlot, Position } from '../types';
 
 const SLOT_COUNT = 8;
 const MIN_DISTANCE = 20; // distancia mínima en % entre iconos
 
 // Encuentra una posición aleatoria que respete la distancia mínima con los iconos existentes
-const getRandomPosition = (existingPositions = []) => {
-  let bestLeft, bestTop, bestMinDist = -1;
+const getRandomPosition = (existingPositions: Position[] = []): Position => {
+  let bestLeft = 0, bestTop = 0, bestMinDist = -1;
 
   for (let attempt = 0; attempt < 60; attempt++) {
     const left = Math.random() * 82 + 5;  // 5% to 87%
@@ -41,7 +42,7 @@ export const useFloatingIcons = () => {
   );
 
   // Elige una tecnología aleatoria, evitando los iconos visibles actualmente
-  const getRandomTech = useCallback((excludeIcons = []) => {
+  const getRandomTech = useCallback((excludeIcons: string[] = []): Skill => {
     const available = allTechs.filter(t => !excludeIcons.includes(t.icon));
     const pool = available.length > 0 ? available : allTechs;
     return pool[Math.floor(Math.random() * pool.length)];
@@ -50,7 +51,7 @@ export const useFloatingIcons = () => {
   // Inicializa los espacios con distanciamiento obligatorio
   const [slots, setSlots] = useState(() => {
     const shuffled = [...allTechs].sort(() => Math.random() - 0.5);
-    const initialSlots = [];
+    const initialSlots: FloatingSlot[] = [];
 
     for (let i = 0; i < SLOT_COUNT; i++) {
       const pos = getRandomPosition(initialSlots);
@@ -66,7 +67,7 @@ export const useFloatingIcons = () => {
   });
 
   // Cuando el ciclo de animación termina (opacidad = 0), cambia a un nuevo icono y posición distanciada
-  const handleAnimationIteration = useCallback((slotIndex) => {
+  const handleAnimationIteration = useCallback((slotIndex: number) => {
     setSlots(prev => {
       const newSlots = [...prev];
       const currentIcons = newSlots.map(s => s.tech.icon);

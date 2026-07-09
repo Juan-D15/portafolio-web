@@ -3,7 +3,11 @@ import React from 'react';
 import { getTechIcon } from '../utils/techIconMapper';
 import { renderIcon } from '../utils/iconRenderer';
 
-const TechTag = ({ name }) => {
+interface TechTagProps {
+  name: string;
+}
+
+const TechTag: React.FC<TechTagProps> = ({ name }) => {
   const iconSlug = getTechIcon(name);
   const icon = renderIcon(iconSlug, 'w-8 h-8');
   

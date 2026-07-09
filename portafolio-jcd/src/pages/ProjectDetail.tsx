@@ -17,25 +17,24 @@ import projectsData from '../data/projectsData';
 import TechTag from '../components/TechTag';
 
 const ProjectDetail = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const project = projectsData.find((p) => p.id === id);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [galleryPage, setGalleryPage] = useState(0);
 
-  const IMAGES_PER_PAGE = 4;
-  const totalPages = Math.ceil(project.images.length / IMAGES_PER_PAGE);
-  const startIndex = galleryPage * IMAGES_PER_PAGE;
-  const visibleImages = project.images.slice(startIndex, startIndex + IMAGES_PER_PAGE);
-
-  const openModal = (index) => setSelectedImage(index);
+  const openModal = (index: number) => setSelectedImage(index);
   const closeModal = () => setSelectedImage(null);
 
+
+
   const nextImage = () => {
-    setSelectedImage((prev) => (prev + 1) % project.images.length);
+    if (!project) return;
+    setSelectedImage((prev) => prev !== null ? (prev + 1) % project.images.length : 0);
   };
 
   const prevImage = () => {
-    setSelectedImage((prev) => (prev - 1 + project.images.length) % project.images.length);
+    if (!project) return;
+    setSelectedImage((prev) => prev !== null ? (prev - 1 + project.images.length) % project.images.length : 0);
   };
 
   const nextGalleryPage = () => {
@@ -51,7 +50,7 @@ const ProjectDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedImage === null) return;
       if (e.key === 'Escape') closeModal();
       if (e.key === 'ArrowRight') nextImage();
@@ -88,6 +87,11 @@ const ProjectDetail = () => {
       </div>
     );
   }
+
+  const IMAGES_PER_PAGE = 4;
+  const totalPages = Math.ceil(project.images.length / IMAGES_PER_PAGE);
+  const startIndex = galleryPage * IMAGES_PER_PAGE;
+  const visibleImages = project.images.slice(startIndex, startIndex + IMAGES_PER_PAGE);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -167,8 +171,8 @@ const ProjectDetail = () => {
                       alt={`${project.title} - ${globalIndex + 1}`}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
+                      onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                        e.currentTarget.style.display = 'none';
                       }}
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
@@ -265,14 +269,14 @@ const ProjectDetail = () => {
           {project.images.length > 1 && (
             <>
               <button
-                onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                onClick={(e: React.MouseEvent) => { e.stopPropagation(); prevImage(); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-50"
                 aria-label="Imagen anterior"
               >
                 <ChevronLeft size={28} />
               </button>
               <button
-                onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                onClick={(e: React.MouseEvent) => { e.stopPropagation(); nextImage(); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-50"
                 aria-label="Siguiente imagen"
               >
@@ -285,7 +289,7 @@ const ProjectDetail = () => {
             src={project.images[selectedImage]}
             alt={`${project.title} - ${selectedImage + 1}`}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium">

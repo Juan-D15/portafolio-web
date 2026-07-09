@@ -1,4 +1,6 @@
-const projects = [
+import { Project } from '../types';
+
+const projects: Project[] = [
   {
     id: "proyecto-1",
     title: "Sistema de Gestión de Proyectos - AMG",
