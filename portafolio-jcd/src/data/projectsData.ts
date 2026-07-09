@@ -24,7 +24,7 @@ const projects: Project[] = [
       "/images/amg/adm3-amg.png",
       "/images/amg/adm4-amg.png"
     ],
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS", "React", "Vite"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS", "HTML5", "CSS", "React", "Vite"],
     features: [
       "Gestión centralizada de proyectos",
       "Censo de beneficiarios en tiempo real",
@@ -49,9 +49,9 @@ const projects: Project[] = [
       "/images/mgpurl/pr3-mgp.png",
       "/images/mgpurl/cm1-mgp.png",
       "/images/mgpurl/rg1-mgp.png",
-      "/images/mgpurl/conf1-mgp.png"      
+      "/images/mgpurl/conf1-mgp.png"
     ],
-    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
+    technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS", "HTML5", "CSS"],
     features: [
       "Registro centralizado de eventos y actividades de campo",
       "Mapa interactivo de actividades por comunidad y región",
@@ -72,7 +72,7 @@ const projects: Project[] = [
       "/images/portfolio/ini-port.png",
       "/images/portfolio/ini-port2.png"
     ],
-    technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "JS","HTML5", "CSS"],
+    technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "TypeScript", "HTML5", "CSS"],
     features: [
       "Diseño responsivo y moderno",
       "Sección de proyectos con detalles y tecnologías utilizadas",
