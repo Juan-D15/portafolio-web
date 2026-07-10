@@ -46,11 +46,13 @@ const Hero = () => {
           <span>Juan Carlos Eduardo</span>
           <span>Chen Díaz</span>
         </h1>
-        <p className="text-xl md:text-2xl text-primary mb-2 font-medium">
-          Desarrollador de Software Junior | Frontend & Backend
-        </p>
-        <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-          Construyendo soluciones web escalables y robustas con tecnologías modernas
+        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-md text-white text-sm sm:text-base md:text-lg font-medium mb-6 shadow-lg shadow-black/10">
+          <span>Desarrollador de Software Junior</span>
+          <span className="text-cyan-400 font-bold">|</span>
+          <span>Frontend & Backend</span>
+        </div>
+        <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+          Transformo problemas complejos en soluciones de software claras, eficientes y escalables.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
