@@ -9,12 +9,12 @@ const About = () => {
           Sobre Mí
         </h2>
         <div className="w-20 h-1 bg-primary mx-auto rounded mb-8"></div>
-        
+
         <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-          Cuento con experiencia en la creación de aplicaciones web escalables 
-          y gestión de infraestructura. Apasionado por resolver problemas complejos con 
-          soluciones elegantes y eficientes. Siempre aprendiendo nuevas tecnologías y mejorando 
-          mis habilidades.
+          Me apasiona diseñar y desarrollar aplicaciones web escalables,
+          combinando la solidez del software con la gestión eficiente de infraestructura.
+          Me motiva resolver problemas complejos mediante soluciones claras y eficientes,
+          manteniendo un enfoque de aprendizaje constante para aplicar las mejores prácticas.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
