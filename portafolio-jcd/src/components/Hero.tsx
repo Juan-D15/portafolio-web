@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { renderIcon } from '../utils/iconRenderer.jsx';
 import { useFloatingIcons } from '../hooks/useFloatingIcons';
+import { useTypingAnimation } from '../hooks/useTypingAnimation';
+
+const typingStrings = [
+  'Desarrollador de Software Junior',
+  'Frontend & Backend',
+];
 
 const Hero = () => {
   const handleScrollToProjects = () => {
@@ -13,6 +19,7 @@ const Hero = () => {
   };
 
   const { slots, handleAnimationIteration } = useFloatingIcons();
+  const { displayText } = useTypingAnimation({ strings: typingStrings });
 
   return (
     <section
@@ -46,10 +53,11 @@ const Hero = () => {
           <span>Juan Carlos Eduardo</span>
           <span>Chen Díaz</span>
         </h1>
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-xl border border-white/10 bg-white/[0.06] backdrop-blur-md text-white text-sm sm:text-base md:text-lg font-medium mb-6 shadow-lg shadow-black/10">
-          <span>Desarrollador de Software Junior</span>
-          <span className="text-cyan-400 font-bold">|</span>
-          <span>Frontend & Backend</span>
+        <div className="h-8 md:h-10 flex items-center justify-center mb-6">
+          <span className="text-slate-300 text-base sm:text-lg md:text-xl font-normal tracking-wide">
+            {displayText}
+          </span>
+          <span className="typing-cursor text-cyan-400 text-base sm:text-lg md:text-xl font-normal ml-0.5">|</span>
         </div>
         <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
           Transformo problemas complejos en soluciones de software claras, eficientes y escalables.
