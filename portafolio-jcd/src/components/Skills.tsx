@@ -1,21 +1,24 @@
 import React from 'react';
 import skillsData from '../data/skillsData';
 import { renderIcon } from '../utils/iconRenderer.jsx';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Skills = () => {
+  const sectionRef = useScrollReveal();
+
   return (
-    <section id="habilidades" className="animated-gradient-dark py-20 px-4">
+    <section id="habilidades" className="animated-gradient-dark py-20 px-4" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 data-reveal className="text-3xl md:text-4xl font-bold text-white mb-4">
             Habilidades
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded"></div>
+          <div data-reveal data-reveal-delay="1" className="w-20 h-1 bg-primary mx-auto rounded"></div>
         </div>
 
         <div className="space-y-12">
-          {skillsData.map((category) => (
-            <div key={category.category}>
+          {skillsData.map((category, catIdx) => (
+            <div key={category.category} data-reveal data-reveal-delay={Math.min(catIdx + 2, 6).toString()}>
               <h3 className="text-xl font-semibold text-gray-300 mb-6 text-center md:text-left">
                 {category.category}
               </h3>
@@ -43,3 +46,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

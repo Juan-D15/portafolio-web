@@ -1,22 +1,25 @@
 import React from 'react';
 import projectsData from '../data/projectsData';
 import ProjectCard from './ProjectCard';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Projects = () => {
+  const sectionRef = useScrollReveal();
+
   return (
-    <section id="proyectos" className="animated-gradient-warm py-20 px-4">
+    <section id="proyectos" className="animated-gradient-warm py-20 px-4" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 data-reveal className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Proyectos
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <div data-reveal data-reveal-delay="1" className="w-20 h-1 bg-primary mx-auto rounded"></div>
+          <p data-reveal data-reveal-delay="2" className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Aquí puedes ver algunos de los proyectos en los que he trabajado
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div data-reveal data-reveal-delay="3" className="grid md:grid-cols-2 gap-8">
           {projectsData.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
@@ -27,3 +30,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

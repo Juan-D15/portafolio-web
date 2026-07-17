@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { siGithub } from 'simple-icons';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // SVG oficial de LinkedIn (no disponible en simple-icons con ese nombre exacto)
 const LinkedInIcon = () => (
@@ -15,6 +16,8 @@ const LinkedInIcon = () => (
 );
 
 const Contact = () => {
+  const sectionRef = useScrollReveal();
+
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -45,18 +48,18 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contacto" className="animated-gradient-dark py-20 px-4">
+    <section id="contacto" className="animated-gradient-dark py-20 px-4" ref={sectionRef}>
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 data-reveal className="text-3xl md:text-4xl font-bold text-white mb-4">
           Contacto
         </h2>
-        <div className="w-20 h-1 bg-primary mx-auto rounded mb-6"></div>
+        <div data-reveal data-reveal-delay="1" className="w-20 h-1 bg-primary mx-auto rounded mb-6"></div>
         
-        <p className="text-gray-400 text-lg mb-10">
+        <p data-reveal data-reveal-delay="2" className="text-gray-400 text-lg mb-10">
           ¿Tienes un proyecto en mente?
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mb-16">
+        <div data-reveal data-reveal-delay="3" className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mb-16">
           {socialLinks.map((link) => (
             <a
               key={link.name}
@@ -74,7 +77,7 @@ const Contact = () => {
           ))}
         </div>
 
-        <div className="border-t border-gray-700 pt-6">
+        <div data-reveal data-reveal-delay="4" className="border-t border-gray-700 pt-6">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Juan Carlos Eduardo Chen Díaz. Todos los derechos reservados.
           </p>
@@ -85,3 +88,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
