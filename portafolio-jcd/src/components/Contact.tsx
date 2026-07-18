@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail } from 'lucide-react';
 import { siGithub } from 'simple-icons';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useTranslation } from 'react-i18next';
 
 // SVG oficial de LinkedIn (no disponible en simple-icons con ese nombre exacto)
 const LinkedInIcon = () => (
@@ -17,6 +18,7 @@ const LinkedInIcon = () => (
 
 const Contact = () => {
   const sectionRef = useScrollReveal();
+  const { t } = useTranslation();
 
   const socialLinks = [
     {
@@ -51,12 +53,12 @@ const Contact = () => {
     <section id="contacto" className="animated-gradient-dark py-20 px-4" ref={sectionRef}>
       <div className="max-w-4xl mx-auto text-center">
         <h2 data-reveal className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Contacto
+          {t('contact.title')}
         </h2>
         <div data-reveal data-reveal-delay="1" className="w-20 h-1 bg-primary mx-auto rounded mb-6"></div>
         
         <p data-reveal data-reveal-delay="2" className="text-gray-400 text-lg mb-10">
-          ¿Tienes un proyecto en mente?
+          {t('contact.subtitle')}
         </p>
 
         <div data-reveal data-reveal-delay="3" className="flex flex-col sm:flex-row justify-center items-center gap-8 sm:gap-12 mb-16">
@@ -79,7 +81,7 @@ const Contact = () => {
 
         <div data-reveal data-reveal-delay="4" className="border-t border-gray-700 pt-6">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Juan Carlos Eduardo Chen Díaz. Todos los derechos reservados.
+            {t('contact.copyright', { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>
@@ -88,4 +90,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

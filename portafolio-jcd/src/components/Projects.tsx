@@ -2,20 +2,22 @@ import React from 'react';
 import projectsData from '../data/projectsData';
 import ProjectCard from './ProjectCard';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
   const sectionRef = useScrollReveal();
+  const { t } = useTranslation();
 
   return (
     <section id="proyectos" className="animated-gradient-warm py-20 px-4" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 data-reveal className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Proyectos
+            {t('projects.title')}
           </h2>
           <div data-reveal data-reveal-delay="1" className="w-20 h-1 bg-primary mx-auto rounded"></div>
           <p data-reveal data-reveal-delay="2" className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Aquí puedes ver algunos de los proyectos en los que he trabajado
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -30,4 +32,3 @@ const Projects = () => {
 };
 
 export default Projects;
-

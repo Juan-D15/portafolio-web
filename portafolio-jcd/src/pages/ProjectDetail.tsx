@@ -15,17 +15,17 @@ import {
 import { siGithub } from 'simple-icons';
 import projectsData from '../data/projectsData';
 import TechTag from '../components/TechTag';
+import { useTranslation } from 'react-i18next';
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = projectsData.find((p) => p.id === id);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [galleryPage, setGalleryPage] = useState(0);
+  const { t } = useTranslation();
 
   const openModal = (index: number) => setSelectedImage(index);
   const closeModal = () => setSelectedImage(null);
-
-
 
   const nextImage = () => {
     if (!project) return;
@@ -75,14 +75,14 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Proyecto no encontrado
+          {t('projectDetail.notFound')}
         </h1>
         <Link
           to="/#proyectos"
           className="text-primary hover:underline flex items-center gap-2"
         >
           <ArrowLeft className="w-4 h-4" />
-          Volver a proyectos
+          {t('projectDetail.backToProjects')}
         </Link>
       </div>
     );
@@ -92,6 +92,11 @@ const ProjectDetail = () => {
   const totalPages = Math.ceil(project.images.length / IMAGES_PER_PAGE);
   const startIndex = galleryPage * IMAGES_PER_PAGE;
   const visibleImages = project.images.slice(startIndex, startIndex + IMAGES_PER_PAGE);
+
+  const translatedTitle = t(`projects.data.${project.id}.title`);
+  const translatedShortDescription = t(`projects.data.${project.id}.shortDescription`);
+  const translatedFullDescription = t(`projects.data.${project.id}.fullDescription`);
+  const translatedFeatures = t(`projects.data.${project.id}.features`, { returnObjects: true }) as string[];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -103,15 +108,15 @@ const ProjectDetail = () => {
             className="inline-flex items-center text-white/80 hover:text-white mb-8 transition-colors backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full"
           >
             <ArrowLeft className="w-5 h-5 mr-2" />
-            Volver a proyectos
+            {t('projectDetail.backToProjects')}
           </Link>
           
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
-            {project.title}
+            {translatedTitle}
           </h1>
           
           <p className="text-xl text-white/80 text-center max-w-2xl mx-auto">
-            {project.shortDescription}
+            {translatedShortDescription}
           </p>
         </div>
       </div>
@@ -123,7 +128,7 @@ const ProjectDetail = () => {
             <div className="p-2 bg-primary/10 rounded-lg">
               <Layers className="w-6 h-6 text-primary" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">Tecnologías</h2>
+            <h2 className="text-2xl font-bold text-gray-900">{t('projectDetail.technologies')}</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {project.technologies.map((tech) => (
@@ -140,17 +145,17 @@ const ProjectDetail = () => {
                 <button
                   onClick={prevGalleryPage}
                   className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-full transition-colors"
-                  aria-label="Página anterior"
+                  aria-label={t('projectDetail.previousPage')}
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <span className="text-sm text-gray-500 font-medium">
-                  Página {galleryPage + 1} de {totalPages}
+                  {t('projectDetail.pageOf', { current: galleryPage + 1, total: totalPages })}
                 </span>
                 <button
                   onClick={nextGalleryPage}
                   className="bg-gray-200 hover:bg-gray-300 text-gray-700 p-2 rounded-full transition-colors"
-                  aria-label="Siguiente página"
+                  aria-label={t('projectDetail.nextPage')}
                 >
                   <ChevronRight size={20} />
                 </button>
@@ -168,7 +173,7 @@ const ProjectDetail = () => {
                   >
                     <img
                       src={img}
-                      alt={`${project.title} - ${globalIndex + 1}`}
+                      alt={`${translatedTitle} - ${globalIndex + 1}`}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                       onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -192,25 +197,25 @@ const ProjectDetail = () => {
           <div className="bg-white rounded-xl shadow-md p-6 md:p-8">
             <div className="flex items-center gap-2 mb-4 border-l-4 border-primary pl-4">
               <Info className="w-6 h-6 text-primary" />
-              <h2 className="text-2xl font-bold text-gray-900">Descripción</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{t('projectDetail.description')}</h2>
             </div>
             <p className="text-gray-700 text-lg leading-relaxed pl-4">
-              {project.fullDescription}
+              {translatedFullDescription}
             </p>
           </div>
         </div>
 
         {/* Características */}
-        {project.features && project.features.length > 0 && (
+        {Array.isArray(translatedFeatures) && translatedFeatures.length > 0 && (
           <div className="mb-10">
             <div className="flex items-center gap-2 mb-6">
               <div className="p-2 bg-primary/10 rounded-lg">
                 <ListChecks className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900">Características</h2>
+              <h2 className="text-2xl font-bold text-gray-900">{t('projectDetail.features')}</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {project.features.map((feature, index) => (
+              {translatedFeatures.map((feature, index) => (
                 <div 
                   key={index} 
                   className="bg-white rounded-xl shadow-sm p-4 flex items-start gap-3 hover:shadow-md hover:translate-y-[-2px] transition-all duration-300"
@@ -235,7 +240,7 @@ const ProjectDetail = () => {
               className="btn btn-primary btn-lg text-lg px-8 hover:scale-105 transition-transform duration-300"
             >
               <ExternalLink className="w-5 h-5 mr-2" />
-              Ver Web
+              {t('projectDetail.viewWeb')}
             </a>
           )}
           {project.githubUrl && (
@@ -246,7 +251,7 @@ const ProjectDetail = () => {
               className="btn btn-outline btn-primary btn-lg text-lg px-8 hover:scale-105 transition-transform duration-300"
             >
               <svg role="img" viewBox="0 0 24 24" className="w-5 h-5 mr-2" fill="currentColor" dangerouslySetInnerHTML={{ __html: siGithub.svg }} />
-              Ver Proyecto
+              {t('projectDetail.viewProject')}
             </a>
           )}
         </div>
@@ -261,7 +266,7 @@ const ProjectDetail = () => {
           <button
             onClick={closeModal}
             className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors z-50"
-            aria-label="Cerrar"
+            aria-label={t('projectDetail.close')}
           >
             <X size={32} />
           </button>
@@ -271,14 +276,14 @@ const ProjectDetail = () => {
               <button
                 onClick={(e: React.MouseEvent) => { e.stopPropagation(); prevImage(); }}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-50"
-                aria-label="Imagen anterior"
+                aria-label={t('projectDetail.previousImage')}
               >
                 <ChevronLeft size={28} />
               </button>
               <button
                 onClick={(e: React.MouseEvent) => { e.stopPropagation(); nextImage(); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-50"
-                aria-label="Siguiente imagen"
+                aria-label={t('projectDetail.nextImage')}
               >
                 <ChevronRight size={28} />
               </button>
@@ -287,13 +292,13 @@ const ProjectDetail = () => {
 
           <img
             src={project.images[selectedImage]}
-            alt={`${project.title} - ${selectedImage + 1}`}
+            alt={`${translatedTitle} - ${selectedImage + 1}`}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e: React.MouseEvent) => e.stopPropagation()}
           />
 
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium">
-            {selectedImage + 1} de {project.images.length}
+            {t('projectDetail.imageOf', { current: selectedImage + 1, total: project.images.length })}
           </div>
         </div>
       )}

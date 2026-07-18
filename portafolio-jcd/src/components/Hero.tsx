@@ -4,13 +4,13 @@ import { ChevronDown } from 'lucide-react';
 import { renderIcon } from '../utils/iconRenderer.jsx';
 import { useFloatingIcons } from '../hooks/useFloatingIcons';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
-
-const typingStrings = [
-  'Desarrollador de Software Junior',
-  'Frontend & Backend',
-];
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
+  const typingStrings = t('hero.typingStrings', { returnObjects: true }) as string[];
+
   const handleScrollToProjects = () => {
     const element = document.querySelector('#proyectos');
     if (element) {
@@ -60,20 +60,20 @@ const Hero = () => {
           <span className="typing-cursor text-cyan-400 text-base sm:text-lg md:text-xl font-normal ml-0.5">|</span>
         </div>
         <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
-          Transformo problemas complejos en soluciones de software claras, eficientes y escalables.
+          {t('hero.description')}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             to="/cv"
             className="btn btn-primary btn-lg text-lg px-8 py-3"
           >
-            Ver mi CV
+            {t('hero.viewCv')}
           </Link>
           <button
             onClick={handleScrollToProjects}
             className="btn btn-primary btn-lg text-lg px-8 py-3"
           >
-            Ver mis proyectos
+            {t('hero.viewProjects')}
           </button>
         </div>
       </div>

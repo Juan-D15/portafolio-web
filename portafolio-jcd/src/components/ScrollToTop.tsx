@@ -1,14 +1,16 @@
 import React from 'react';
 import { ChevronUp } from 'lucide-react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import { useTranslation } from 'react-i18next';
 
 const ScrollToTop = () => {
   const { visible, scrollToTop } = useScrollToTop();
+  const { t } = useTranslation();
 
   return (
     <button
       onClick={scrollToTop}
-      aria-label="Volver al inicio"
+      aria-label={t('scrollToTop.ariaLabel')}
       className={`fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${
         visible
           ? 'opacity-100 translate-y-0 pointer-events-auto'

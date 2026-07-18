@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
 import TechBadge from './TechBadge';
 import { useProjectCard } from '../hooks/useProjectCard';
+import { useTranslation } from 'react-i18next';
 
 import { Project } from '../types';
 
@@ -22,11 +23,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     prevImage,
   } = useProjectCard(project);
 
+  const { t } = useTranslation();
+
+  const translatedTitle = t(`projects.data.${project.id}.title`);
+  const translatedShortDescription = t(`projects.data.${project.id}.shortDescription`);
+
   const renderImage = (src: string, index: number) => {
     return (
       <img
         src={src}
-        alt={`${project.title} - ${index + 1}`}
+        alt={`${translatedTitle} - ${index + 1}`}
         className="w-full h-full object-cover object-center"
         onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
           e.currentTarget.style.display = 'none';
@@ -57,7 +63,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
               {renderImage(img, index)}
               <div className="absolute inset-0 hidden items-center justify-center bg-gray-200 text-gray-500">
-                <span className="text-sm font-medium">Imagen del proyecto</span>
+                <span className="text-sm font-medium">{t('projects.projectImage')}</span>
               </div>
             </div>
           ))}
@@ -100,10 +106,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-gray-900 mb-2">
-          {project.title}
+          {translatedTitle}
         </h3>
         <p className="text-gray-600 text-sm mb-4 flex-grow">
-          {project.shortDescription}
+          {translatedShortDescription}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-4">
@@ -117,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             to={`/proyecto/${project.id}`}
             className="inline-flex items-center text-primary font-semibold hover:underline group"
           >
-            Ver detalles
+            {t('projects.viewDetails')}
             <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
           </Link>
           {project.liveUrl && (
@@ -126,7 +132,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center w-8 h-8 bg-primary/10 hover:bg-primary/20 text-primary rounded-full transition-colors"
-              aria-label="Visitar sitio web"
+              aria-label={t('projects.visitWebsite')}
             >
               <ExternalLink size={16} />
             </a>
