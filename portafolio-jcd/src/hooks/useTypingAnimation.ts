@@ -17,6 +17,21 @@ export const useTypingAnimation = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [stringIndex, setStringIndex] = useState(0);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const prevStringsRef = useRef<string[]>(strings);
+
+  // Reset animation when strings change (e.g., language switch)
+  useEffect(() => {
+    const changed = strings.length !== prevStringsRef.current.length ||
+      strings.some((s, i) => s !== prevStringsRef.current[i]);
+
+    if (changed) {
+      prevStringsRef.current = strings;
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      setDisplayText('');
+      setIsDeleting(false);
+      setStringIndex(0);
+    }
+  }, [strings]);
 
   const currentString = strings[stringIndex];
 
