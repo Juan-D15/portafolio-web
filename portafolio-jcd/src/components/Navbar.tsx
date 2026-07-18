@@ -1,16 +1,43 @@
-import React from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Menu, X, Globe } from 'lucide-react';
 import { useNavbar } from '../hooks/useNavbar';
+import { useTranslation } from 'react-i18next';
 
-const navLinks = [
-  { name: 'Sobre mí', href: '#sobre-mi' },
-  { name: 'Habilidades', href: '#habilidades' },
-  { name: 'Proyectos', href: '#proyectos' },
-  { name: 'Contacto', href: '#contacto' },
+const navLinkKeys = [
+  { key: 'navbar.about', href: '#sobre-mi' },
+  { key: 'navbar.skills', href: '#habilidades' },
+  { key: 'navbar.projects', href: '#proyectos' },
+  { key: 'navbar.contact', href: '#contacto' },
+];
+
+const languages = [
+  { code: 'es', labelKey: 'navbar.langEs', flag: '🇪🇸' },
+  { code: 'en', labelKey: 'navbar.langEn', flag: '🇺🇸' },
 ];
 
 const Navbar = () => {
   const { isOpen, scrolled, activeSection, toggleMenu, handleClick } = useNavbar();
+  const { t, i18n } = useTranslation();
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
+
+  const selectLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    setLangOpen(false);
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
@@ -21,13 +48,13 @@ const Navbar = () => {
           : 'bg-white/[0.06] backdrop-blur-md border-white/10 shadow-lg shadow-black/10'
           }`}
       >
-        {navLinks.map((link) => {
+        {navLinkKeys.map((link) => {
           const sectionId = link.href.replace('#', '');
           const isActive = activeSection === sectionId;
 
           return (
             <a
-              key={link.name}
+              key={link.key}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
               className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive
@@ -35,10 +62,44 @@ const Navbar = () => {
                 : 'text-gray-400 hover:text-white hover:bg-white/10'
                 }`}
             >
-              {link.name}
+              {t(link.key)}
             </a>
           );
         })}
+
+        {/* Language dropdown — desktop */}
+        <div className="relative" ref={langRef}>
+          <button
+            onClick={() => setLangOpen((prev) => !prev)}
+            className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5"
+            aria-label="Change language"
+          >
+            <Globe size={14} />
+            <span>{currentLang.flag}</span>
+          </button>
+
+          {/* Dropdown panel */}
+          <div
+            className={`absolute right-0 top-full mt-2 min-w-[150px] rounded-xl border border-white/15 bg-slate-900/80 backdrop-blur-xl shadow-xl shadow-black/30 overflow-hidden transition-all duration-200 origin-top-right ${langOpen
+              ? 'opacity-100 scale-100 translate-y-0'
+              : 'opacity-0 scale-90 -translate-y-1 pointer-events-none'
+              }`}
+          >
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => selectLanguage(lang.code)}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-all duration-200 ${i18n.language === lang.code
+                  ? 'text-white bg-white/15'
+                  : 'text-gray-400 hover:text-white hover:bg-white/10'
+                  }`}
+              >
+                <span className="text-base">{lang.flag}</span>
+                <span>{t(lang.labelKey)}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Mobile — hamburger button (top-right) */}
@@ -64,13 +125,13 @@ const Navbar = () => {
           }`}
       >
         <div className="p-2 space-y-1">
-          {navLinks.map((link) => {
+          {navLinkKeys.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;
 
             return (
               <a
-                key={link.name}
+                key={link.key}
                 href={link.href}
                 onClick={(e) => handleClick(e, link.href)}
                 className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${isActive
@@ -78,10 +139,30 @@ const Navbar = () => {
                   : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
               >
-                {link.name}
+                {t(link.key)}
               </a>
             );
           })}
+
+          {/* Language selector — mobile */}
+          <div className="border-t border-white/10 mt-1 pt-1">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  selectLanguage(lang.code);
+                  toggleMenu();
+                }}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${i18n.language === lang.code
+                  ? 'text-white bg-white/15'
+                  : 'text-gray-400 hover:text-white hover:bg-white/10'
+                  }`}
+              >
+                <span className="text-base">{lang.flag}</span>
+                <span>{t(lang.labelKey)}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
@@ -89,4 +170,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
