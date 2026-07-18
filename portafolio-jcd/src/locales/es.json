@@ -1,0 +1,113 @@
+{
+  "navbar": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "langEs": "Español",
+    "langEn": "Inglés"
+  },
+  "hero": {
+    "typingStrings": ["Desarrollador de Software Junior", "Frontend & Backend"],
+    "description": "Transformo problemas complejos en soluciones de software claras, eficientes y escalables.",
+    "viewCv": "Ver mi CV",
+    "viewProjects": "Ver mis proyectos"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Me apasiona diseñar y desarrollar aplicaciones web escalables, combinando la solidez del software con la gestión eficiente de infraestructura. Me motiva resolver problemas complejos mediante soluciones claras y eficientes, manteniendo un enfoque de aprendizaje constante para aplicar las mejores prácticas.",
+    "location": "Ubicación",
+    "locationValue": "Guatemala",
+    "education": "Formación",
+    "educationValue": "Ingeniería en Ciencias y Sistemas",
+    "educationDetail": "5to. año - 9no. Semestre",
+    "experience": "Experiencia",
+    "experienceValue": "Desarrollo de aplicaciones web modernas",
+    "languages": "Idiomas",
+    "languageSpanish": "Español - Nativo",
+    "languageEnglish": "Inglés - Intermedio"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "categories": {
+      "Lenguajes": "Lenguajes",
+      "Frameworks & Desarrollo Web": "Frameworks & Desarrollo Web",
+      "Bases de Datos": "Bases de Datos",
+      "Infraestructura": "Infraestructura",
+      "Herramientas": "Herramientas"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Aquí puedes ver algunos de los proyectos en los que he trabajado",
+    "viewDetails": "Ver detalles",
+    "projectImage": "Imagen del proyecto",
+    "visitWebsite": "Visitar sitio web",
+    "data": {
+      "proyecto-1": {
+        "title": "Sistema de Gestión de Proyectos - AMG",
+        "shortDescription": "Sistema de gestión para el control de proyectos realizados por la Asociación Maya Guatemala - AMG.",
+        "fullDescription": "La Asociación gestionaba sus proyectos sociales y beneficiarios con hojas de Excel dispersas, generando duplicidad de datos, falta de control presupuestario y reportes lentos. Como solución, desarrollé un sistema web completo que centraliza la gestión de proyectos por fases, el censo de beneficiarios, la ejecución presupuestaria y la carga de evidencias, con generación de reportes exportables en PDF y Excel. El sistema implementa autenticación segura, control de acceso por roles y bitácoras de auditoría, garantizando la integridad de la información. Gracias a esto, la organización eliminó la dispersión de datos, obtuvo visibilidad en tiempo real sobre sus proyectos y redujo la generación de informes de días a segundos.",
+        "features": [
+          "Gestión centralizada de proyectos",
+          "Censo de beneficiarios en tiempo real",
+          "Control presupuestario detallado",
+          "Generación de reportes en segundos",
+          "Control de acceso por roles",
+          "Bitácora de auditoría completa"
+        ]
+      },
+      "proyecto-2": {
+        "title": "Gestor de Eventos MAGA - PURULHÁ",
+        "shortDescription": "Sistema web para registrar, dar seguimiento y mapear las capacitaciones, entregas y ayudas que ejecuta la oficina regional del MAGA en Purulhá.",
+        "fullDescription": "La oficina regional del Ministerio de Agricultura de Purulhá gestionaba sus actividades de campo con Excel, Word y papel, lo que provocaba duplicidad de datos, pérdida de información histórica y retrasos en la elaboración de informes. Se desarrolló un sistema web que centraliza el registro de capacitaciones, entregas y ayudas vinculadas a beneficiarios y comunidades, con formulario responsivo para captura desde el móvil. Incluye un mapa interactivo que visualiza las actividades por comunidad con filtros en tiempo real, generación de reportes exportables en Word y PDF, y un módulo de usuarios con control de acceso por roles y bitácora de auditoría. Como resultado, la oficina eliminó el uso de registros manuales, mejoró la trazabilidad de sus operaciones y redujo el tiempo de generación de informes.",
+        "features": [
+          "Registro centralizado de eventos y actividades de campo",
+          "Mapa interactivo de actividades por comunidad y región",
+          "Reportes automáticos exportables en Word y PDF",
+          "Calendario de eventos con notificaciones",
+          "Modo sin conexión para captura de datos en campo",
+          "Bitácora completa de trazabilidad y auditoría"
+        ]
+      },
+      "proyecto-3": {
+        "title": "Portafolio Web",
+        "shortDescription": "Mi Portafolio Web",
+        "fullDescription": "Portafolio web personalizado que muestra mis proyectos, habilidades y experiencia. Incluye secciones para descripción del proyecto, tecnologías utilizadas y características principales de los proyectos.",
+        "features": [
+          "Diseño responsivo y moderno",
+          "Sección de proyectos con detalles y tecnologías utilizadas",
+          "Sección de habilidades con iconos personalizados",
+          "Navegación intuitiva"
+        ]
+      }
+    }
+  },
+  "projectDetail": {
+    "notFound": "Proyecto no encontrado",
+    "backToProjects": "Volver a proyectos",
+    "technologies": "Tecnologías",
+    "description": "Descripción",
+    "features": "Características",
+    "viewWeb": "Ver Web",
+    "viewProject": "Ver Proyecto",
+    "pageOf": "Página {{current}} de {{total}}",
+    "imageOf": "{{current}} de {{total}}",
+    "previousPage": "Página anterior",
+    "nextPage": "Siguiente página",
+    "previousImage": "Imagen anterior",
+    "nextImage": "Siguiente imagen",
+    "close": "Cerrar"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente?",
+    "copyright": "© {{year}} Juan Carlos Eduardo Chen Díaz. Todos los derechos reservados."
+  },
+  "cv": {
+    "backToPortfolio": "Volver al Portafolio"
+  },
+  "scrollToTop": {
+    "ariaLabel": "Volver al inicio"
+  }
+}

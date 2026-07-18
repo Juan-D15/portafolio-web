@@ -1,0 +1,113 @@
+{
+  "navbar": {
+    "about": "About Me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "langEs": "Spanish",
+    "langEn": "English"
+  },
+  "hero": {
+    "typingStrings": ["Junior Software Developer", "Frontend & Backend"],
+    "description": "I transform complex problems into clear, efficient, and scalable software solutions.",
+    "viewCv": "View my CV",
+    "viewProjects": "View my projects"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I am passionate about designing and developing scalable web applications, combining software robustness with efficient infrastructure management. I am motivated to solve complex problems through clear and efficient solutions, maintaining a continuous learning mindset to apply best practices.",
+    "location": "Location",
+    "locationValue": "Guatemala",
+    "education": "Education",
+    "educationValue": "Computer Science & Systems Engineering",
+    "educationDetail": "5th year - 9th Semester",
+    "experience": "Experience",
+    "experienceValue": "Modern web application development",
+    "languages": "Languages",
+    "languageSpanish": "Spanish - Native",
+    "languageEnglish": "English - Intermediate"
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "Lenguajes": "Languages",
+      "Frameworks & Desarrollo Web": "Frameworks & Web Development",
+      "Bases de Datos": "Databases",
+      "Infraestructura": "Infrastructure",
+      "Herramientas": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Here you can see some of the projects I have worked on",
+    "viewDetails": "View details",
+    "projectImage": "Project image",
+    "visitWebsite": "Visit website",
+    "data": {
+      "proyecto-1": {
+        "title": "Project Management System - AMG",
+        "shortDescription": "Management system for managing projects carried out by the Maya Guatemala Association - AMG.",
+        "fullDescription": "The Association managed its social projects and beneficiaries using scattered Excel spreadsheets, leading to data duplication, lack of budget control, and slow reporting. As a solution, I developed a complete web system that centralizes project management by phases, beneficiary census, budget execution, and evidence uploading, with exportable report generation in PDF and Excel. The system implements secure authentication, role-based access control, and audit logs, ensuring data integrity. As a result, the organization eliminated data dispersion, gained real-time visibility over its projects, and reduced report generation from days to seconds.",
+        "features": [
+          "Centralized project management",
+          "Real-time beneficiary census",
+          "Detailed budget control",
+          "Report generation in seconds",
+          "Role-based access control",
+          "Complete audit trail"
+        ]
+      },
+      "proyecto-2": {
+        "title": "MAGA Event Manager - PURULHÁ",
+        "shortDescription": "Web system to register, track, and map training sessions, deliveries, and aid distributed by the MAGA regional office in Purulhá.",
+        "fullDescription": "The regional office of the Ministry of Agriculture in Purulhá managed its field activities with Excel, Word, and paper, causing data duplication, loss of historical information, and delays in report preparation. A web system was developed that centralizes the registration of training sessions, deliveries, and aid linked to beneficiaries and communities, with a responsive form for mobile capture. It includes an interactive map that visualizes activities by community with real-time filters, exportable report generation in Word and PDF, and a user module with role-based access control and an audit trail. As a result, the office eliminated the use of manual records, improved the traceability of its operations, and reduced report generation time.",
+        "features": [
+          "Centralized registration of field events and activities",
+          "Interactive map of activities by community and region",
+          "Automatic exportable reports in Word and PDF",
+          "Event calendar with notifications",
+          "Offline mode for field data capture",
+          "Complete traceability and audit trail"
+        ]
+      },
+      "proyecto-3": {
+        "title": "Web Portfolio",
+        "shortDescription": "My Web Portfolio",
+        "fullDescription": "Custom web portfolio showcasing my projects, skills, and experience. It includes sections for project description, technologies used, and main project features.",
+        "features": [
+          "Responsive and modern design",
+          "Projects section with details and technologies used",
+          "Skills section with custom icons",
+          "Intuitive navigation"
+        ]
+      }
+    }
+  },
+  "projectDetail": {
+    "notFound": "Project not found",
+    "backToProjects": "Back to projects",
+    "technologies": "Technologies",
+    "description": "Description",
+    "features": "Features",
+    "viewWeb": "Visit Website",
+    "viewProject": "View Project",
+    "pageOf": "Page {{current}} of {{total}}",
+    "imageOf": "{{current}} of {{total}}",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "close": "Close"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Do you have a project in mind?",
+    "copyright": "© {{year}} Juan Carlos Eduardo Chen Díaz. All rights reserved."
+  },
+  "cv": {
+    "backToPortfolio": "Back to Portfolio"
+  },
+  "scrollToTop": {
+    "ariaLabel": "Back to top"
+  }
+}
