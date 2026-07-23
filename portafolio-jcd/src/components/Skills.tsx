@@ -34,7 +34,7 @@ const Skills = () => {
                       {renderIcon(tech.icon)}
                     </div>
                     <span className="text-white text-sm font-medium text-center">
-                      {tech.name}
+                      {t(`skills.items.${tech.name}`, tech.name)}
                     </span>
                   </div>
                 ))}
