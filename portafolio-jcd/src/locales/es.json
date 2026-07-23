@@ -8,7 +8,10 @@
     "langEn": "Inglés"
   },
   "hero": {
-    "typingStrings": ["Desarrollador de Software Junior", "Frontend & Backend"],
+    "typingStrings": [
+      "Desarrollador de Software Junior",
+      "Frontend & Backend"
+    ],
     "description": "Transformo problemas complejos en soluciones de software claras, eficientes y escalables.",
     "viewCv": "Ver mi CV",
     "viewProjects": "Ver mis proyectos"
@@ -20,7 +23,7 @@
     "locationValue": "Guatemala",
     "education": "Formación",
     "educationValue": "Ingeniería en Ciencias y Sistemas",
-    "educationDetail": "5to. año - 9no. Semestre",
+    "educationDetail": "5to. año - 10mo. Semestre",
     "experience": "Experiencia",
     "experienceValue": "Desarrollo de aplicaciones web modernas",
     "languages": "Idiomas",
@@ -35,6 +38,9 @@
       "Bases de Datos": "Bases de Datos",
       "Infraestructura": "Infraestructura",
       "Herramientas": "Herramientas"
+    },
+    "items": {
+      "Administración VPS": "Administración VPS"
     }
   },
   "projects": {
