@@ -28,6 +28,8 @@ import {
   siPnpm,
   siNestjs,
   siUv,
+  siExpress,
+  siFigma,
 } from 'simple-icons';
 import {
   Hash,
@@ -80,6 +82,8 @@ export const iconMap: Record<string, SimpleIcon | null> = {
   server: null,
   daisyui: null,
   nestjs: siNestjs,
+  express: siExpress,
+  figma: siFigma,
 };
 
 export const lucideFallbacks: Record<string, (sizeClass: string) => React.ReactNode> = {
