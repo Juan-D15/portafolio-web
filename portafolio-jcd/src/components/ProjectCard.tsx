@@ -34,6 +34,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         src={src}
         alt={`${translatedTitle} - ${index + 1}`}
         className="w-full h-full object-cover object-center"
+        loading="lazy"
+        decoding="async"
         onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
           e.currentTarget.style.display = 'none';
           const nextSibling = e.currentTarget.nextElementSibling as HTMLElement;
