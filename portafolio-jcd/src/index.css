@@ -5,23 +5,59 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Fondos de gradiente animados - coincidentes con la paleta de colores del proyecto */
-@keyframes gradient-shift {
+/* GPU-composited gradient animation shared by all gradient sections */
+@keyframes gradient-gpu {
   0% {
-    background-position: 0% 50%;
+    transform: translate3d(0, -37.5%, 0);
   }
 
   50% {
-    background-position: 100% 50%;
+    transform: translate3d(-75%, -37.5%, 0);
   }
 
   100% {
-    background-position: 0% 50%;
+    transform: translate3d(0, -37.5%, 0);
   }
+}
+
+/* Shared base styles for GPU-composited gradient sections */
+.animated-gradient-dark,
+.animated-gradient-light,
+.animated-gradient-warm {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-gradient-dark::before,
+.animated-gradient-light::before,
+.animated-gradient-warm::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 400%;
+  will-change: transform;
+  backface-visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure section content renders above the gradient pseudo-element */
+.animated-gradient-dark > *,
+.animated-gradient-light > *,
+.animated-gradient-warm > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Secciones oscuras - tonos gris azulado profundos que complementan el acento principal */
 .animated-gradient-dark {
+  background: #0f172a;
+}
+
+.animated-gradient-dark::before {
   background: linear-gradient(-45deg,
       #0f172a,
       #1e293b,
@@ -29,12 +65,15 @@ html {
       #1e3a5f,
       #0f172a,
       #111827);
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
+  animation: gradient-gpu 15s ease infinite;
 }
 
 /* Secciones claras - tonos suaves de gris frío */
 .animated-gradient-light {
+  background: #f8fafc;
+}
+
+.animated-gradient-light::before {
   background: linear-gradient(-45deg,
       #f8fafc,
       #e2e8f0,
@@ -42,8 +81,7 @@ html {
       #e2e8f0,
       #f8fafc,
       #f1f5f9);
-  background-size: 400% 400%;
-  animation: gradient-shift 18s ease infinite;
+  animation: gradient-gpu 18s ease infinite;
 }
 
 /* Hero - azul profundo dramático con matices sutiles de morado */
@@ -69,29 +107,19 @@ html {
       #0f172a,
       #0a0a0a,
       #111827);
-  animation: gradient-hero-gpu 20s ease infinite;
+  animation: gradient-gpu 20s ease infinite;
   will-change: transform;
   backface-visibility: hidden;
   z-index: 0;
   pointer-events: none;
 }
 
-@keyframes gradient-hero-gpu {
-  0% {
-    transform: translate3d(0, -37.5%, 0);
-  }
-
-  50% {
-    transform: translate3d(-75%, -37.5%, 0);
-  }
-
-  100% {
-    transform: translate3d(0, -37.5%, 0);
-  }
-}
-
 /* Sección de proyectos - gris blanco frío muy sutil */
 .animated-gradient-warm {
+  background: #f8fafc;
+}
+
+.animated-gradient-warm::before {
   background: linear-gradient(-45deg,
       #f8fafc,
       #f1f5f9,
@@ -99,8 +127,7 @@ html {
       #f8fafc,
       #f1f5f9,
       #e2e8f0);
-  background-size: 400% 400%;
-  animation: gradient-shift 16s ease infinite;
+  animation: gradient-gpu 16s ease infinite;
 }
 
 /* Animación de iconos flotantes para la sección Hero */
