@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
   ArrowLeft, 
@@ -24,18 +24,20 @@ const ProjectDetail = () => {
   const [galleryPage, setGalleryPage] = useState(0);
   const { t } = useTranslation();
 
-  const openModal = (index: number) => setSelectedImage(index);
-  const closeModal = () => setSelectedImage(null);
+  const imageCount = project?.images.length ?? 0;
 
-  const nextImage = () => {
-    if (!project) return;
-    setSelectedImage((prev) => prev !== null ? (prev + 1) % project.images.length : 0);
-  };
+  const openModal = useCallback((index: number) => setSelectedImage(index), []);
+  const closeModal = useCallback(() => setSelectedImage(null), []);
 
-  const prevImage = () => {
-    if (!project) return;
-    setSelectedImage((prev) => prev !== null ? (prev - 1 + project.images.length) % project.images.length : 0);
-  };
+  const nextImage = useCallback(() => {
+    if (!imageCount) return;
+    setSelectedImage((prev) => prev !== null ? (prev + 1) % imageCount : 0);
+  }, [imageCount]);
+
+  const prevImage = useCallback(() => {
+    if (!imageCount) return;
+    setSelectedImage((prev) => prev !== null ? (prev - 1 + imageCount) % imageCount : 0);
+  }, [imageCount]);
 
   const nextGalleryPage = () => {
     setGalleryPage((prev) => (prev + 1) % totalPages);
