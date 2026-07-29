@@ -11,7 +11,7 @@ const navLinkKeys = [
 ];
 
 const languages = [
-  { code: 'es', labelKey: 'navbar.langEs', flag: '🇪🇸' },
+  { code: 'es', labelKey: 'navbar.langEs', flag: '🇬🇹' },
   { code: 'en', labelKey: 'navbar.langEn', flag: '🇺🇸' },
 ];
 
@@ -71,11 +71,11 @@ const Navbar = () => {
         <div className="relative" ref={langRef}>
           <button
             onClick={() => setLangOpen((prev) => !prev)}
-            className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/10 flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center gap-1.5"
             aria-label="Change language"
           >
-            <Globe size={14} />
-            <span>{currentLang.flag}</span>
+            <Globe size={16} className="shrink-0" />
+            <span className="inline-flex items-center justify-center text-base leading-none -translate-y-[1.5px]">{currentLang.flag}</span>
           </button>
 
           {/* Dropdown panel */}
@@ -94,7 +94,7 @@ const Navbar = () => {
                   : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
               >
-                <span className="text-base">{lang.flag}</span>
+                <span className="inline-flex items-center justify-center text-base leading-none -translate-y-[1px]">{lang.flag}</span>
                 <span>{t(lang.labelKey)}</span>
               </button>
             ))}
@@ -158,7 +158,7 @@ const Navbar = () => {
                   : 'text-gray-400 hover:text-white hover:bg-white/10'
                   }`}
               >
-                <span className="text-base">{lang.flag}</span>
+                <span className="inline-flex items-center justify-center text-base leading-none">{lang.flag}</span>
                 <span>{t(lang.labelKey)}</span>
               </button>
             ))}
