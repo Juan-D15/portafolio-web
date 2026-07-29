@@ -1,22 +1,53 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { renderIcon } from '../utils/iconRenderer.jsx';
 import { useFloatingIcons } from '../hooks/useFloatingIcons';
 import { useTypingAnimation } from '../hooks/useTypingAnimation';
 import { useTranslation } from 'react-i18next';
+import { FloatingSlot } from '../types';
+
+// Memoized floating icon — only re-renders when its own slot data changes
+interface FloatingIconProps {
+  slot: FloatingSlot;
+  index: number;
+  onIteration: (index: number) => void;
+}
+
+const FloatingIcon = React.memo(({ slot, index, onIteration }: FloatingIconProps) => (
+  <div
+    className="absolute floating-icon"
+    style={{
+      left: slot.left,
+      top: slot.top,
+      animationDelay: slot.delay,
+      animationDuration: slot.duration,
+    }}
+    onAnimationIteration={() => onIteration(index)}
+  >
+    <div className="text-white">
+      {renderIcon(slot.tech.icon, "w-14 h-14 md:w-16 md:h-16")}
+    </div>
+  </div>
+));
+
+FloatingIcon.displayName = 'FloatingIcon';
 
 const Hero = () => {
   const { t } = useTranslation();
 
-  const typingStrings = t('hero.typingStrings', { returnObjects: true }) as string[];
+  // Memoize to preserve reference stability across renders
+  const typingStrings = useMemo(
+    () => t('hero.typingStrings', { returnObjects: true }) as string[],
+    [t]
+  );
 
-  const handleScrollToProjects = () => {
+  const handleScrollToProjects = useCallback(() => {
     const element = document.querySelector('#proyectos');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
   const { slots, handleAnimationIteration } = useFloatingIcons();
   const { displayText } = useTypingAnimation({ strings: typingStrings });
@@ -29,21 +60,12 @@ const Hero = () => {
       {/* Iconos flotantes de fondo — ciclan a través de las habilidades */}
       <div className="absolute inset-0 pointer-events-none" style={{ contain: 'layout style paint', zIndex: 1 }}>
         {slots.map((slot, index) => (
-          <div
+          <FloatingIcon
             key={`floating-slot-${index}`}
-            className="absolute floating-icon"
-            style={{
-              left: slot.left,
-              top: slot.top,
-              animationDelay: slot.delay,
-              animationDuration: slot.duration,
-            }}
-            onAnimationIteration={() => handleAnimationIteration(index)}
-          >
-            <div className="text-white">
-              {renderIcon(slot.tech.icon, "w-14 h-14 md:w-16 md:h-16")}
-            </div>
-          </div>
+            slot={slot}
+            index={index}
+            onIteration={handleAnimationIteration}
+          />
         ))}
       </div>
 
@@ -86,3 +108,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
