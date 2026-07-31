@@ -48,9 +48,6 @@ export const useNavbar = () => {
     setIsOpen((prev) => !prev);
   }, []);
 
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
-  }, []);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -66,7 +63,6 @@ export const useNavbar = () => {
     scrolled,
     activeSection,
     toggleMenu,
-    closeMenu,
     handleClick,
   };
 };

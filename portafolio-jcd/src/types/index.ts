@@ -30,7 +30,7 @@ export interface SimpleIcon {
   hex?: string;
 }
 
-export type IconSlug = string;
+
 
 // Tipos para floating icons
 export interface FloatingSlot {
