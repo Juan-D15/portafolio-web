@@ -60,7 +60,7 @@ const ProjectDetail = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage]);
+  }, [selectedImage, closeModal, nextImage, prevImage]);
 
   useEffect(() => {
     if (selectedImage !== null) {
