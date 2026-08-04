@@ -23,7 +23,6 @@ const skills: SkillCategory[] = [
       { name: "Node.js", icon: "nodedotjs" },
       { name: "Express.js", icon: "express" },
       { name: "Next.js", icon: "nextdotjs" },
-      { name: "WordPress", icon: "wordpress" },
       { name: ".NET", icon: "dotnet" },
       { name: "React", icon: "react" },
       { name: "Tailwind CSS", icon: "tailwindcss" },
