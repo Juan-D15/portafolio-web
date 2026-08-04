@@ -100,13 +100,13 @@ const Hero = () => {
         <div data-reveal style={{ transitionDelay: '1.5s', transitionDuration: '1s' }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             to="/cv"
-            className="btn btn-primary btn-lg text-lg px-8 py-3"
+            className="inline-flex items-center justify-center gap-2 min-w-[200px] px-8 py-3 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/15 text-gray-300 font-semibold text-lg hover:bg-primary/20 hover:border-primary/40 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
           >
             {t('hero.viewCv')}
           </Link>
           <button
             onClick={handleScrollToProjects}
-            className="btn btn-primary btn-lg text-lg px-8 py-3"
+            className="inline-flex items-center justify-center gap-2 min-w-[200px] px-8 py-3 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/15 text-gray-300 font-semibold text-lg hover:bg-primary/20 hover:border-primary/40 hover:text-white hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
           >
             {t('hero.viewProjects')}
           </button>

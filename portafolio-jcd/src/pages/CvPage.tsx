@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const CV_PATH = '/cv/CV%20Juan%20Carlos%20Eduardo%20Chen%20D%C3%ADaz.pdf';
@@ -16,9 +16,9 @@ const CvPage = () => {
       <div className="py-4 px-4 flex-shrink-0">
         <Link
           to="/"
-          className="inline-flex items-center text-white/80 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 bg-white/5"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/[0.06] backdrop-blur-sm border border-white/15 text-gray-300 font-medium hover:bg-primary/20 hover:border-primary/40 hover:text-white hover:-translate-y-0.5 transition-all duration-300"
         >
-          <ArrowLeft className="w-5 h-5 mr-2" />
+          <ChevronLeft size={18} />
           {t('cv.backToPortfolio')}
         </Link>
       </div>
