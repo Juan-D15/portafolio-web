@@ -8,9 +8,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const PER_PAGE = 4;
 
 const Projects = () => {
-  const sectionRef = useScrollReveal();
-  const { t } = useTranslation();
   const [page, setPage] = useState(0);
+  const sectionRef = useScrollReveal('[data-reveal]', 0.15, [page]);
+  const { t } = useTranslation();
 
   const totalPages = Math.ceil(projectsData.length / PER_PAGE);
   const paged = projectsData.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
@@ -34,11 +34,16 @@ const Projects = () => {
 
         <div
           key={page}
-          data-reveal data-reveal-delay="3"
-          className="grid md:grid-cols-2 gap-8 animate-[fadeIn_0.35s_ease-out_forwards]"
+          className="grid md:grid-cols-2 gap-8"
         >
-          {paged.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {paged.map((project, i) => (
+            <div
+              key={project.id}
+              data-reveal
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
+              <ProjectCard project={project} />
+            </div>
           ))}
         </div>
 

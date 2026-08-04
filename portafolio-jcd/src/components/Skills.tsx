@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Skills = () => {
-  const sectionRef = useScrollReveal();
-  const { t } = useTranslation();
   const [activeIdx, setActiveIdx] = useState(0);
+  const sectionRef = useScrollReveal('[data-reveal]', 0.15, [activeIdx]);
+  const { t } = useTranslation();
   const activeCategory = skillsData[activeIdx];
 
   return (
@@ -66,17 +66,15 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Active category content — no data-reveal to avoid opacity conflict */}
-        <div
-          key={activeIdx}
-          className="animate-[fadeIn_0.35s_ease-out_forwards]"
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {activeCategory.items.map((tech) => (
-              <div
-                key={tech.name}
-                className="bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col items-center justify-center gap-3 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
-              >
+        {/* Active category content */}
+        <div key={activeIdx} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          {activeCategory.items.map((tech, i) => (
+            <div
+              key={tech.name}
+              data-reveal
+              style={{ transitionDelay: `${i * 0.05}s` }}
+            >
+              <div className="bg-gray-800 border border-gray-700 rounded-xl p-4 flex flex-col items-center justify-center gap-3 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group h-full">
                 <div className="text-white group-hover:text-primary transition-colors duration-300">
                   {renderIcon(tech.icon)}
                 </div>
@@ -84,8 +82,8 @@ const Skills = () => {
                   {t(`skills.items.${tech.name}`, tech.name)}
                 </span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
