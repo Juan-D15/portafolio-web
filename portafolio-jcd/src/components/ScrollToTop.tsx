@@ -11,13 +11,13 @@ const ScrollToTop = () => {
     <button
       onClick={scrollToTop}
       aria-label={t('scrollToTop.ariaLabel')}
-      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ${
+      className={`group fixed bottom-8 right-8 z-50 p-3 rounded-full border border-white/15 bg-slate-900/60 backdrop-blur-xl text-gray-200 shadow-xl shadow-black/20 navbar-pill cursor-pointer transition-all duration-300 hover:text-white hover:bg-slate-800/80 hover:border-white/30 hover:scale-110 active:scale-95 ${
         visible
           ? 'opacity-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 translate-y-4 pointer-events-none'
-      } bg-primary text-white hover:scale-110 hover:shadow-xl`}
+      }`}
     >
-      <ChevronUp size={24} />
+      <ChevronUp size={22} className="transition-transform duration-300 group-hover:-translate-y-0.5" />
     </button>
   );
 };
