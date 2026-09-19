@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy-load secondary pages to reduce initial bundle
 const ProjectDetail = React.lazy(() => import('./pages/ProjectDetail'));
@@ -40,6 +41,7 @@ function App() {
         </Routes>
       </Suspense>
       <ScrollToTop />
+      <Analytics />
     </div>
   );
 }
