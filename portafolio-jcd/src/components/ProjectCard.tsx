@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, ExternalLink } from 'lucide-reac
 import TechBadge from './TechBadge';
 import { useProjectCard } from '../hooks/useProjectCard';
 import { useTranslation } from 'react-i18next';
+import { imageSrc, imageSrcSet, PROJECT_CARD_SIZES } from '../utils/image';
 
 import { Project } from '../types';
 
@@ -13,11 +14,13 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const {
+    cardRef,
     currentImage,
     isHovered,
     setIsHovered,
     displayImages,
     hasMultipleImages,
+    shouldRenderImage,
     goToImage,
     nextImage,
     prevImage,
@@ -28,10 +31,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const translatedTitle = t(`projects.data.${project.id}.title`);
   const translatedShortDescription = t(`projects.data.${project.id}.shortDescription`);
 
-  const renderImage = (src: string, index: number) => {
+  const renderImage = (base: string, index: number) => {
     return (
       <img
-        src={src}
+        src={imageSrc(base, 960)}
+        srcSet={imageSrcSet(base)}
+        sizes={PROJECT_CARD_SIZES}
+        width={1280}
+        height={720}
         alt={`${translatedTitle} - ${index + 1}`}
         className="w-full h-full object-cover object-center"
         loading="lazy"
@@ -48,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
+    <div ref={cardRef} className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col">
       <div
         className="relative aspect-video overflow-hidden bg-gray-100 group"
         onMouseEnter={() => setIsHovered(true)}
@@ -63,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 transform: `translateX(${(index - currentImage) * 100}%)`,
               }}
             >
-              {renderImage(img, index)}
+              {shouldRenderImage(index) && renderImage(img, index)}
               <div className="absolute inset-0 hidden items-center justify-center bg-gray-200 text-gray-500">
                 <span className="text-sm font-medium">{t('projects.projectImage')}</span>
               </div>
@@ -75,12 +82,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <>
             <button
               onClick={prevImage}
+              aria-label={t('projects.previousImage')}
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
             >
               <ChevronLeft size={20} />
             </button>
             <button
               onClick={nextImage}
+              aria-label={t('projects.nextImage')}
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10"
             >
               <ChevronRight size={20} />
@@ -97,6 +106,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                   e.stopPropagation();
                   goToImage(index);
                 }}
+                aria-label={t('projects.goToImage', { n: index + 1 })}
+                aria-current={index === currentImage ? 'true' : undefined}
                 className={`w-2 h-2 rounded-full transition-colors duration-200 ${
                   index === currentImage ? 'bg-white' : 'bg-white/50'
                 }`}
