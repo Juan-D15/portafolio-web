@@ -16,6 +16,9 @@ import { siGithub } from 'simple-icons';
 import projectsData from '../data/projectsData';
 import TechTag from '../components/TechTag';
 import { useTranslation } from 'react-i18next';
+import { imageSrc, imageSrcSet } from '../utils/image';
+import { SvgIcon } from '../utils/iconRenderer';
+import { usePauseOffscreenAnimations } from '../hooks/usePauseOffscreenAnimations';
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,6 +26,7 @@ const ProjectDetail = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [galleryPage, setGalleryPage] = useState(0);
   const { t } = useTranslation();
+  usePauseOffscreenAnimations();
 
   const imageCount = project?.images.length ?? 0;
 
@@ -75,7 +79,7 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
+      <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {t('projectDetail.notFound')}
         </h1>
@@ -86,7 +90,7 @@ const ProjectDetail = () => {
           <ArrowLeft className="w-4 h-4" />
           {t('projectDetail.backToProjects')}
         </Link>
-      </div>
+      </main>
     );
   }
 
@@ -101,7 +105,7 @@ const ProjectDetail = () => {
   const translatedFeatures = t(`projects.data.${project.id}.features`, { returnObjects: true }) as string[];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50">
       {/* Header con gradiente */}
       <div className="animated-gradient-hero py-16 md:py-24 px-4 relative">
         <div className="max-w-5xl mx-auto relative z-10">
@@ -174,7 +178,12 @@ const ProjectDetail = () => {
                     className="rounded-xl shadow-lg overflow-hidden bg-gray-200 group relative cursor-pointer aspect-video"
                   >
                     <img
-                      src={img}
+                      src={imageSrc(img, 640)}
+                      srcSet={imageSrcSet(img)}
+                      sizes="(min-width: 1024px) 500px, 50vw"
+                      width={1280}
+                      height={720}
+                      decoding="async"
                       alt={`${translatedTitle} - ${globalIndex + 1}`}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
@@ -252,7 +261,7 @@ const ProjectDetail = () => {
               rel="noopener noreferrer"
               className="btn btn-outline btn-primary btn-lg text-lg px-8 hover:scale-105 transition-transform duration-300"
             >
-              <svg role="img" viewBox="0 0 24 24" className="w-5 h-5 mr-2" fill="currentColor" dangerouslySetInnerHTML={{ __html: siGithub.svg }} />
+              <SvgIcon path={siGithub.path} className="w-5 h-5 mr-2" />
               {t('projectDetail.viewProject')}
             </a>
           )}
@@ -293,7 +302,9 @@ const ProjectDetail = () => {
           )}
 
           <img
-            src={project.images[selectedImage]}
+            src={imageSrc(project.images[selectedImage], 1920)}
+            srcSet={imageSrcSet(project.images[selectedImage])}
+            sizes="100vw"
             alt={`${translatedTitle} - ${selectedImage + 1}`}
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e: React.MouseEvent) => e.stopPropagation()}
@@ -304,7 +315,7 @@ const ProjectDetail = () => {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 
