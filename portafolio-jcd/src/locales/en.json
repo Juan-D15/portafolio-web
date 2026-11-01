@@ -5,7 +5,10 @@
     "projects": "Projects",
     "contact": "Contact",
     "langEs": "Spanish",
-    "langEn": "English"
+    "langEn": "English",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "changeLanguage": "Change language"
   },
   "hero": {
     "typingStrings": [
@@ -41,7 +44,9 @@
     },
     "items": {
       "Administración VPS": "VPS Administration"
-    }
+    },
+    "previousCategory": "Previous category",
+    "nextCategory": "Next category"
   },
   "projects": {
     "title": "Projects",
@@ -87,7 +92,13 @@
           "Intuitive navigation"
         ]
       }
-    }
+    },
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "goToImage": "Show image {{n}}",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "goToPage": "Go to page {{n}}"
   },
   "projectDetail": {
     "notFound": "Project not found",
