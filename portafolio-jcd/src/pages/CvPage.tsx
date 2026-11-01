@@ -9,7 +9,7 @@ const CvPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div
+    <main
       className="flex flex-col bg-slate-950"
       style={{ height: '100dvh' }}
     >
@@ -26,10 +26,11 @@ const CvPage = () => {
         <embed
           src={CV_PATH}
           type="application/pdf"
+          title="CV Juan Carlos Eduardo Chen Díaz"
           className="w-full h-full rounded-xl"
         />
       </div>
-    </div>
+    </main>
   );
 };
 
