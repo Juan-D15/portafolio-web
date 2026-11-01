@@ -44,8 +44,18 @@ import { SimpleIcon } from '../types';
 
 // Icono personalizado de Windows (logo 4 rectángulos) compatible con fill="currentColor"
 const siWindowsCustom: SimpleIcon = {
-  svg: '<path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/>'
+  path: 'M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801',
 };
+
+/**
+ * Icono SVG de 24×24 a partir de un path. Es decorativo (aria-hidden): en toda la app
+ * se muestra junto al nombre de la tecnología/red social en texto.
+ */
+export const SvgIcon = ({ path, className }: { path: string; className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true" focusable="false">
+    <path d={path} />
+  </svg>
+);
 
 export const iconMap: Record<string, SimpleIcon | null> = {
   python: siPython,
@@ -100,28 +110,12 @@ export const renderIcon = (iconSlug: string | null | undefined, sizeClass: strin
   const icon = iconMap[iconSlug];
   
   if (icon) {
-    return (
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        className={sizeClass}
-        fill="currentColor"
-        dangerouslySetInnerHTML={{ __html: icon.svg }}
-      />
-    );
+    return <SvgIcon path={icon.path} className={sizeClass} />;
   }
   if (iconSlug === 'dokploy') {
-    return (
-      <span
-        className={`${sizeClass} dokploy-icon inline-block`}
-        role="img"
-        aria-label="Dokploy"
-      />
-    );
+    return <span className={`${sizeClass} dokploy-icon inline-block`} aria-hidden="true" />;
   }
 
-
-  
   const fallbackFn = lucideFallbacks[iconSlug];
   return fallbackFn ? fallbackFn(sizeClass) : null;
 };
