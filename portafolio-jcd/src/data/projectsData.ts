@@ -7,22 +7,22 @@ const projects: Project[] = [
     shortDescription: "Sistema de gestión para el control de proyectos realizados por la Asociación Maya Guatemala - AMG.",
     fullDescription: "La Asociación gestionaba sus proyectos sociales y beneficiarios con hojas de Excel dispersas, generando duplicidad de datos, falta de control presupuestario y reportes lentos. Como solución, desarrollé un sistema web completo que centraliza la gestión de proyectos por fases, el censo de beneficiarios, la ejecución presupuestaria y la carga de evidencias, con generación de reportes exportables en PDF y Excel. El sistema implementa autenticación segura, control de acceso por roles y bitácoras de auditoría, garantizando la integridad de la información. Gracias a esto, la organización eliminó la dispersión de datos, obtuvo visibilidad en tiempo real sobre sus proyectos y redujo la generación de informes de días a segundos.",
     images: [
-      "/images/amg/logo.jpg",
-      "/images/amg/inicio2-amg.png",
-      "/images/amg/dash2-amg.png",
-      "/images/amg/pr2-amg.png",
-      "/images/amg/bn1-amg.png",
-      "/images/amg/bn2-amg.png",
-      "/images/amg/bn3-amg.png",
-      "/images/amg/ejc1-amg.png",
-      "/images/amg/ejc3-amg.png",
-      "/images/amg/ejc2-amg.png",
-      "/images/amg/rep1-amg.png",
-      "/images/amg/rep2-amg.png",
-      "/images/amg/adm1-amg.png",
-      "/images/amg/adm2-amg.png",
-      "/images/amg/adm3-amg.png",
-      "/images/amg/adm4-amg.png"
+      "/images/amg/logo",
+      "/images/amg/inicio2-amg",
+      "/images/amg/dash2-amg",
+      "/images/amg/pr2-amg",
+      "/images/amg/bn1-amg",
+      "/images/amg/bn2-amg",
+      "/images/amg/bn3-amg",
+      "/images/amg/ejc1-amg",
+      "/images/amg/ejc3-amg",
+      "/images/amg/ejc2-amg",
+      "/images/amg/rep1-amg",
+      "/images/amg/rep2-amg",
+      "/images/amg/adm1-amg",
+      "/images/amg/adm2-amg",
+      "/images/amg/adm3-amg",
+      "/images/amg/adm4-amg"
     ],
     technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS", "HTML5", "CSS", "React", "Vite"],
     features: [
@@ -42,14 +42,14 @@ const projects: Project[] = [
     shortDescription: "Sistema web para registrar, dar seguimiento y mapear las capacitaciones, entregas y ayudas que ejecuta la oficina regional del MAGA en Purulhá.",
     fullDescription: "La oficina regional del Ministerio de Agricultura de Purulhá gestionaba sus actividades de campo con Excel, Word y papel, lo que provocaba duplicidad de datos, pérdida de información histórica y retrasos en la elaboración de informes. Se desarrolló un sistema web que centraliza el registro de capacitaciones, entregas y ayudas vinculadas a beneficiarios y comunidades, con formulario responsivo para captura desde el móvil. Incluye un mapa interactivo que visualiza las actividades por comunidad con filtros en tiempo real, generación de reportes exportables en Word y PDF, y un módulo de usuarios con control de acceso por roles y bitácora de auditoría. Como resultado, la oficina eliminó el uso de registros manuales, mejoró la trazabilidad de sus operaciones y redujo el tiempo de generación de informes.",
     images: [
-      "/images/mgpurl/inicio1-mgp.png",
-      "/images/mgpurl/dash1-mgp.png",
-      "/images/mgpurl/pr1-mgp.png",
-      "/images/mgpurl/pr2-mgp.png",
-      "/images/mgpurl/pr3-mgp.png",
-      "/images/mgpurl/cm1-mgp.png",
-      "/images/mgpurl/rg1-mgp.png",
-      "/images/mgpurl/conf1-mgp.png"
+      "/images/mgpurl/inicio1-mgp",
+      "/images/mgpurl/dash1-mgp",
+      "/images/mgpurl/pr1-mgp",
+      "/images/mgpurl/pr2-mgp",
+      "/images/mgpurl/pr3-mgp",
+      "/images/mgpurl/cm1-mgp",
+      "/images/mgpurl/rg1-mgp",
+      "/images/mgpurl/conf1-mgp"
     ],
     technologies: ["Django", "PostgreSQL", "Tailwind CSS", "DaisyUI", "JS", "HTML5", "CSS"],
     features: [
@@ -69,8 +69,8 @@ const projects: Project[] = [
     shortDescription: "Mi Portafolio Web",
     fullDescription: "Portafolio web personalizado que muestra mis proyectos, habilidades y experiencia. Incluye secciones para descripción del proyecto, tecnologías utilizadas y características principales de los proyectos. ",
     images: [
-      "/images/portfolio/ini-port.png",
-      "/images/portfolio/ini-port2.png"
+      "/images/portfolio/ini-port",
+      "/images/portfolio/ini-port2"
     ],
     technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "TypeScript", "HTML5", "CSS"],
     features: [
