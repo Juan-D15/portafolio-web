@@ -5,6 +5,8 @@ interface UseTypingAnimationOptions {
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseDuration?: number;
+  /** Detiene la animación (p. ej. con el Hero fuera de pantalla) sin perder el estado */
+  paused?: boolean;
 }
 
 export const useTypingAnimation = ({
@@ -12,6 +14,7 @@ export const useTypingAnimation = ({
   typingSpeed = 80,
   deletingSpeed = 40,
   pauseDuration = 2000,
+  paused = false,
 }: UseTypingAnimationOptions) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -44,6 +47,8 @@ export const useTypingAnimation = ({
   }, [isDeleting, currentString]);
 
   useEffect(() => {
+    if (paused) return;
+
     if (!isDeleting && displayText === currentString) {
       // Finished typing — pause then start deleting
       timeoutRef.current = setTimeout(() => setIsDeleting(true), pauseDuration);
@@ -60,7 +65,7 @@ export const useTypingAnimation = ({
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [displayText, isDeleting, currentString, tick, typingSpeed, deletingSpeed, pauseDuration, strings.length]);
+  }, [paused, displayText, isDeleting, currentString, tick, typingSpeed, deletingSpeed, pauseDuration, strings.length]);
 
   return { displayText };
 };
