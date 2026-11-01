@@ -20,7 +20,19 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/images/:dir/:name\\.png",
+      "destination": "/images/:dir/:name-1280.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/:dir/:name\\.jpg",
+      "destination": "/images/:dir/:name-1280.webp",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!images/|assets/).*)", "destination": "/index.html" }
   ]
 }
