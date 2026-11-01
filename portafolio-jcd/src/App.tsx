@@ -13,6 +13,7 @@ import { usePauseOffscreenAnimations } from './hooks/usePauseOffscreenAnimations
 // Lazy-load secondary pages to reduce initial bundle
 const ProjectDetail = React.lazy(() => import('./pages/ProjectDetail'));
 const CvPage = React.lazy(() => import('./pages/CvPage'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-slate-950">
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/proyecto/:id" element={<ProjectDetail />} />
           <Route path="/cv" element={<CvPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <ScrollToTop />
