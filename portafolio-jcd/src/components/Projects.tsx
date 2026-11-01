@@ -54,7 +54,7 @@ const Projects = () => {
               onClick={() => goTo(page - 1)}
               disabled={page === 0}
               className="p-2 rounded-full border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-              aria-label="Previous page"
+              aria-label={t('projects.previousPage')}
             >
               <ChevronLeft size={20} />
             </button>
@@ -69,7 +69,8 @@ const Projects = () => {
                       ? 'bg-primary scale-125'
                       : 'bg-gray-400 hover:bg-gray-600'
                   }`}
-                  aria-label={`Page ${i + 1}`}
+                  aria-label={t('projects.goToPage', { n: i + 1 })}
+                  aria-current={i === page ? 'true' : undefined}
                 />
               ))}
             </div>
@@ -78,7 +79,7 @@ const Projects = () => {
               onClick={() => goTo(page + 1)}
               disabled={page === totalPages - 1}
               className="p-2 rounded-full border border-gray-300 text-gray-600 hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-              aria-label="Next page"
+              aria-label={t('projects.nextPage')}
             >
               <ChevronRight size={20} />
             </button>
