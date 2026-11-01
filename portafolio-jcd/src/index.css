@@ -1,22 +1,30 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Carpetas sin clases de Tailwind: escanearlas solo mete CSS sobrante
+   (p. ej. "menu" en los textos traducidos activaba el componente .menu de DaisyUI) */
+@source not "./locales";
+@source not "../scripts";
+@source not "../image-sources";
+
 html {
   scroll-behavior: smooth;
 }
 
-/* GPU-composited gradient animation shared by all gradient sections */
+/* GPU-composited gradient animation shared by all gradient sections.
+   El pseudo-elemento mide 200%×200% de la sección: se desplaza en X entre 0 y -50%
+   (siempre cubre la sección) y queda centrado en Y con -25%. */
 @keyframes gradient-gpu {
   0% {
-    transform: translate3d(0, -37.5%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 
   50% {
-    transform: translate3d(-75%, -37.5%, 0);
+    transform: translate3d(-50%, -25%, 0);
   }
 
   100% {
-    transform: translate3d(0, -37.5%, 0);
+    transform: translate3d(0, -25%, 0);
   }
 }
 
@@ -36,8 +44,8 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 400%;
-  height: 400%;
+  width: 200%;
+  height: 200%;
   will-change: transform;
   backface-visibility: hidden;
   z-index: 0;
@@ -98,8 +106,8 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 400%;
-  height: 400%;
+  width: 200%;
+  height: 200%;
   background: linear-gradient(-45deg,
       #0a0a0a,
       #0f172a,
@@ -176,20 +184,77 @@ html {
   transition: background-color 0.3s ease;
 }
 
-/* Navbar floating pill — subtle glow pulse */
+/* Navbar floating pill — subtle glow pulse.
+   Animar box-shadow obliga a repintar en cada frame (y aquí además hay backdrop-blur).
+   En su lugar, la sombra intensa vive en un pseudo-elemento y solo se anima su opacity,
+   que la GPU compone sin repintar. El elemento con .navbar-pill debe estar posicionado
+   (relative/fixed). */
 @keyframes pill-glow {
   0%,
   100% {
-    box-shadow: 0 0 15px rgba(56, 189, 248, 0.05), 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
   }
 
   50% {
-    box-shadow: 0 0 25px rgba(56, 189, 248, 0.1), 0 4px 30px rgba(0, 0, 0, 0.2);
+    opacity: 1;
   }
 }
 
 .navbar-pill {
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.05), 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.1), 0 4px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
   animation: pill-glow 4s ease-in-out infinite;
+}
+
+/* Hero — entrada solo con transform (sin opacity: 0) para que el texto principal sea
+   visible desde el primer pintado y cuente como LCP de inmediato. */
+@keyframes hero-rise {
+  from {
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Solo para elementos pequeños (botones) que no compiten por el LCP */
+.hero-fade {
+  animation: hero-fade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Animaciones pausadas mientras su sección está fuera de pantalla
+   (atributo gestionado por usePauseOffscreenAnimations) */
+[data-anim-paused]::before,
+[data-anim-paused] .floating-icon,
+[data-anim-paused] .animate-bounce,
+[data-anim-paused] .typing-cursor {
+  animation-play-state: paused;
 }
 
 /* Typing cursor blink */
@@ -230,10 +295,27 @@ html {
 
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  .animated-gradient-dark::before,
+  .animated-gradient-light::before,
+  .animated-gradient-warm::before,
+  .animated-gradient-hero::before,
+  .floating-icon,
+  .navbar-pill::after,
+  .typing-cursor,
+  .hero-rise,
+  .hero-fade,
+  .animate-bounce {
+    animation: none;
   }
 }
 
