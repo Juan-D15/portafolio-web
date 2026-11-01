@@ -43,7 +43,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
       {/* Desktop — floating glass pill */}
       <div
-        className={`hidden md:inline-flex items-center gap-3 mt-4 px-2 py-2 rounded-full border transition-all duration-500 pointer-events-auto navbar-pill ${scrolled
+        className={`relative hidden md:inline-flex items-center gap-3 mt-4 px-2 py-2 rounded-full border transition-all duration-500 pointer-events-auto navbar-pill ${scrolled
           ? 'bg-slate-900/60 backdrop-blur-xl border-white/15 shadow-xl shadow-black/20'
           : 'bg-white/[0.06] backdrop-blur-md border-white/10 shadow-lg shadow-black/10'
           }`}
@@ -72,7 +72,8 @@ const Navbar = () => {
           <button
             onClick={() => setLangOpen((prev) => !prev)}
             className="px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 text-gray-400 hover:text-white hover:bg-white/10 flex items-center justify-center gap-1.5"
-            aria-label="Change language"
+            aria-label={t('navbar.changeLanguage')}
+            aria-expanded={langOpen}
           >
             <Globe size={16} className="shrink-0" />
             <span className="inline-flex items-center justify-center text-base leading-none -translate-y-[1.5px]">{currentLang.flag}</span>
@@ -106,6 +107,8 @@ const Navbar = () => {
       <div className="md:hidden absolute top-4 right-4 pointer-events-auto">
         <button
           onClick={toggleMenu}
+          aria-label={isOpen ? t('navbar.closeMenu') : t('navbar.openMenu')}
+          aria-expanded={isOpen}
           className={`p-2.5 rounded-full border transition-all duration-300 ${isOpen
             ? 'bg-white/15 backdrop-blur-xl border-white/20 text-white'
             : scrolled
