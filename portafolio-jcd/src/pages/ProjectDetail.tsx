@@ -80,6 +80,7 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
+        <meta name="robots" content="noindex" />
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {t('projectDetail.notFound')}
         </h1>
