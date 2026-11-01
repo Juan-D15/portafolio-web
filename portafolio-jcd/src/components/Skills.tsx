@@ -29,7 +29,7 @@ const Skills = () => {
               <button
                 onClick={() => setActiveIdx((activeIdx - 1 + skillsData.length) % skillsData.length)}
                 className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer"
-                aria-label="Previous category"
+                aria-label={t('skills.previousCategory')}
               >
                 <ChevronLeft size={18} />
               </button>
@@ -39,7 +39,7 @@ const Skills = () => {
               <button
                 onClick={() => setActiveIdx((activeIdx + 1) % skillsData.length)}
                 className="p-1.5 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 cursor-pointer"
-                aria-label="Next category"
+                aria-label={t('skills.nextCategory')}
               >
                 <ChevronRight size={18} />
               </button>
