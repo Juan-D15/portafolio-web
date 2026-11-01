@@ -24,7 +24,7 @@ export interface SkillCategory {
 
 // Tipos para iconos
 export interface SimpleIcon {
-  svg: string;
+  path: string;
   title?: string;
   slug?: string;
   hex?: string;
