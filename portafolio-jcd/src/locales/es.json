@@ -126,5 +126,10 @@
   },
   "scrollToTop": {
     "ariaLabel": "Volver al inicio"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que buscas no existe o fue movida.",
+    "backHome": "Volver al inicio"
   }
 }
