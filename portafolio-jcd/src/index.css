@@ -6,6 +6,7 @@
 @source not "./locales";
 @source not "../scripts";
 @source not "../image-sources";
+@source not "../tests";
 
 html {
   scroll-behavior: smooth;
